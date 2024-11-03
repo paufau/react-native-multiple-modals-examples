@@ -890,7 +890,7 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-  - react-native-multiple-modals (1.2.3):
+  - react-native-multiple-modals (1.2.4):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -1063,6 +1063,10 @@ PODS:
     - React-jsi (= 0.73.10)
     - React-logger (= 0.73.10)
     - React-perflogger (= 0.73.10)
+  - RNGestureHandler (2.20.2):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - RNReanimated (3.16.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1143,6 +1147,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -1254,6 +1259,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   Yoga:
@@ -1290,7 +1297,7 @@ SPEC CHECKSUMS:
   React-logger: 82babb1e3fad0e04750981f24e6c38f644a0bf7c
   React-Mapbuffer: 758750eb32350b01dd9c350010aecc46842047bd
   react-native-blur: b2b140d3d65077a1d5d26be62d9415f895592344
-  react-native-multiple-modals: 24e73a716e606e738c25f5650e2ff8e5feda3619
+  react-native-multiple-modals: 3828c170397a4252a933a40e851272d94890de6b
   react-native-safe-area-context: 4532f1a0c5d34a46b9324ccaaedcb5582a302b7d
   React-nativeconfig: a596be0c98c050b80bc7e262d46a53d4df4ff712
   React-NativeModulesApple: 4829cef81c8a322029300b6ff1c5f28768fca85b
@@ -1312,6 +1319,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 639000d08f94ee18017fad4c691c572bb6dfbe50
   React-utils: c3a9bede4e9aa5c0a8184958cd4c09ff461fd60f
   ReactCommon: 92194c3d756b82bff5b75450544b2863b4df0d5f
+  RNGestureHandler: 93938f47763bf404d697f7c5d63c280ae4d732e4
   RNReanimated: 51ba6c9ecdde77caf364c7e5ae59a089c7dd98b3
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 66a97477b94264cc4e49990c8fe6b153260d871d
