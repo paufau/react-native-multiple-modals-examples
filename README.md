@@ -10,7 +10,28 @@
 
 ## Examples inside
 
-1. **RegularModal** - the most simple use case.
-1. **AnimatedModal** - same as regular, but with custom entering and exiting animations.
-1. **BlockingModal** - different animation. Cannot be closed by tapping outside or android back button.
-1. **BlurredModal** - same as blocking modal, but backdrop uses blur component
+### **RegularModal**
+
+The most simple use case.
+
+![Regular Modal](./assets/regular.gif)
+
+### **AnimatedModal**
+
+Same as regular, but with custom entering and exiting animations.
+
+![Animated Modal](./assets/animated.gif)
+
+### **BlockingModal**
+
+Different animation. Cannot be closed by tapping outside or android back button.
+
+![Blocking Modal](./assets/blocking.gif)
+
+### **BlurredModal**
+
+Same as blocking modal, but backdrop uses blur component
+
+### **GesturedModal**
+
+Same as regular, but supports gestures & reanimations inside
