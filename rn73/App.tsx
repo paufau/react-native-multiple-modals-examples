@@ -1,6 +1,6 @@
+import {DemoScreen} from 'demo-components';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {DemoScreen} from './src/DemoScreen';
 
 function App() {
   return (

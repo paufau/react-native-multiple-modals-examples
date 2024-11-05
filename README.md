@@ -1,5 +1,12 @@
 # Example App for React Native Multiple Modals
 
+## Project Structure
+
+- 'demo-components' - Contains all the modals
+- 'rn73' - For old architecture testing
+- 'rn75' - For new architecture testing on newer version
+- 'rn76' - To be added ;)
+
 ## Setup
 
 1. Install Node Modules `yarn install`
