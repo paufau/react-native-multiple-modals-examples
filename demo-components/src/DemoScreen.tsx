@@ -5,9 +5,10 @@ import {Button} from './components/button/Button';
 import {AnimatedModal} from './modals/animated/AnimatedModal';
 import {BlockingModal} from './modals/blocking/BlockingModal';
 import {BlurredModal} from './modals/blurred/BlurredModal';
+import {GesturedModal} from './modals/gestured/GesturedModal';
+import {ReanimatedModal} from './modals/reanimated/ReanimatedModal';
 import {RegularModal} from './modals/regular/RegularModal';
 import {COLORS} from './theme/colors';
-import {GesturedModal} from './modals/gestured/GesturedModal';
 
 export const DemoScreen = () => {
   const [isRegularVisible, setRegularVisibility] = useState(false);
@@ -15,6 +16,7 @@ export const DemoScreen = () => {
   const [isBlockingVisible, setBlockingVisibility] = useState(false);
   const [isBlurredVisible, setBlurredVisibility] = useState(false);
   const [isGesturedVisible, setGesturedVisibility] = useState(false);
+  const [isReanimatedVisible, setReanimatedVisibility] = useState(false);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -24,6 +26,9 @@ export const DemoScreen = () => {
         <Button onPress={() => setBlockingVisibility(true)}>Blocking</Button>
         <Button onPress={() => setBlurredVisibility(true)}>Blurred</Button>
         <Button onPress={() => setGesturedVisibility(true)}>Gestured</Button>
+        <Button onPress={() => setReanimatedVisibility(true)}>
+          Reanimated
+        </Button>
       </View>
 
       {isRegularVisible && (
@@ -43,6 +48,11 @@ export const DemoScreen = () => {
       )}
       {isGesturedVisible && (
         <GesturedModal onRequestDismiss={() => setGesturedVisibility(false)} />
+      )}
+      {isReanimatedVisible && (
+        <ReanimatedModal
+          onRequestDismiss={() => setReanimatedVisibility(false)}
+        />
       )}
     </SafeAreaView>
   );

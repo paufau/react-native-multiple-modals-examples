@@ -3969,16 +3969,16 @@ __metadata:
 
 "demo-components@file:../demo-components::locator=react_native_multiple_modals_example_app%40workspace%3A.":
   version: 0.0.1
-  resolution: "demo-components@file:../demo-components#../demo-components::hash=cd7651&locator=react_native_multiple_modals_example_app%40workspace%3A."
-  dependencies:
-    "@react-native-community/blur": ^4.4.1
-    react: 18.2.0
-    react-native: 0.73.10
-    react-native-gesture-handler: ^2.20.2
-    react-native-multiple-modals: "file:../../react-native-multiple-modals"
-    react-native-reanimated: ^3.8.1
-    react-native-safe-area-context: ^4.12.0
-  checksum: 8d3f50e082fbe56d1fddb47b5a3dc12f87e55f27e63c683349f99c8fcdf0b4943a715aeef8bb65c3219bd59fe98ab7cc875668e34febb562701241a35de12571
+  resolution: "demo-components@file:../demo-components#../demo-components::hash=5fd515&locator=react_native_multiple_modals_example_app%40workspace%3A."
+  peerDependencies:
+    "@react-native-community/blur": ">=4"
+    react: ^18
+    react-native: ">=0.70"
+    react-native-gesture-handler: ">=2"
+    react-native-multiple-modals: "*"
+    react-native-reanimated: ">=3"
+    react-native-safe-area-context: ">=4"
+  checksum: d603368681df9b9c429c4d1b3f12ea8db5498943d16d5110cd5629326d28c44fb8ea67fb34bca9f0fbe1da5fad33e0da336d181e59241eeec6f6cfee514932fb
   languageName: node
   linkType: hard
 
@@ -7839,41 +7839,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-multiple-modals@file:../../react-native-multiple-modals::locator=demo-components%40file%3A..%2Fdemo-components%23..%2Fdemo-components%3A%3Ahash%3Dcd7651%26locator%3Dreact_native_multiple_modals_example_app%2540workspace%253A.":
-  version: 1.2.5
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=db48c7&locator=demo-components%40file%3A..%2Fdemo-components%23..%2Fdemo-components%3A%3Ahash%3Dcd7651%26locator%3Dreact_native_multiple_modals_example_app%2540workspace%253A."
-  dependencies:
-    "@react-native/virtualized-lists": ^0.75.4
-  peerDependencies:
-    "@types/react": "*"
-    "@types/react-native": "*"
-    react: ^18
-    react-native: ">=0.70.0"
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    "@types/react-native":
-      optional: true
-  checksum: 8b8c4345ad513a2c3b7f96541527bae3b2bb5228c921472de152770a6e73cc5643e249de1116e55da0ff58fedff273ca6a686c7836531e3e95b22616eb8aaa4f
-  languageName: node
-  linkType: hard
-
 "react-native-multiple-modals@file:../../react-native-multiple-modals::locator=react_native_multiple_modals_example_app%40workspace%3A.":
-  version: 1.2.5
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=db48c7&locator=react_native_multiple_modals_example_app%40workspace%3A."
+  version: 2.0.0
+  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=1fa5ad&locator=react_native_multiple_modals_example_app%40workspace%3A."
   dependencies:
     "@react-native/virtualized-lists": ^0.75.4
   peerDependencies:
     "@types/react": "*"
     "@types/react-native": "*"
     react: ^18
-    react-native: ">=0.70.0"
+    react-native: ">=0.71.0"
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-native":
       optional: true
-  checksum: 8b8c4345ad513a2c3b7f96541527bae3b2bb5228c921472de152770a6e73cc5643e249de1116e55da0ff58fedff273ca6a686c7836531e3e95b22616eb8aaa4f
+  checksum: 23af312ab39c4885f8e798f58e5420489dfe3bb49f872b98c96a18ee6f22ad64d69458e46ad343ab09f79e361159be379b8e1e17d0b882359075ff213f6382cb
   languageName: node
   linkType: hard
 

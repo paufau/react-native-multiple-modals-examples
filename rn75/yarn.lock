@@ -145,9 +145,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-define-polyfill-provider@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "@babel/helper-define-polyfill-provider@npm:0.6.2"
+"@babel/helper-define-polyfill-provider@npm:^0.6.2, @babel/helper-define-polyfill-provider@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "@babel/helper-define-polyfill-provider@npm:0.6.3"
   dependencies:
     "@babel/helper-compilation-targets": ^7.22.6
     "@babel/helper-plugin-utils": ^7.22.5
@@ -156,7 +156,7 @@ __metadata:
     resolve: ^1.14.2
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 2bba965ea9a4887ddf9c11d51d740ab473bd7597b787d042c325f6a45912dfe908c2d6bb1d837bf82f7e9fa51e6ad5150563c58131d2bb85515e63d971414a9c
+  checksum: 710e6d8a5391736b9f53f09d0494575c2e03de199ad8d1349bc8e514cb85251ea1f1842c2ff44830849d482052ddb42ae931101002a87a263b12f649c2e57c01
   languageName: node
   linkType: hard
 
@@ -3233,15 +3233,15 @@ __metadata:
   linkType: hard
 
 "babel-plugin-polyfill-corejs2@npm:^0.4.10":
-  version: 0.4.11
-  resolution: "babel-plugin-polyfill-corejs2@npm:0.4.11"
+  version: 0.4.12
+  resolution: "babel-plugin-polyfill-corejs2@npm:0.4.12"
   dependencies:
     "@babel/compat-data": ^7.22.6
-    "@babel/helper-define-polyfill-provider": ^0.6.2
+    "@babel/helper-define-polyfill-provider": ^0.6.3
     semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: f098353ce7c7dde1a1d2710858e01b471e85689110c9e37813e009072347eb8c55d5f84d20d3bf1cab31755f20078ba90f8855fdc4686a9daa826a95ff280bd7
+  checksum: 6e6e6a8b85fec80a310ded2f5c151385e4ac59118909dd6a952e1025e4a478eb79dda45a5a6322cc2e598fd696eb07d4e2fa52418b4101f3dc370bdf8c8939ba
   languageName: node
   linkType: hard
 
@@ -3258,13 +3258,13 @@ __metadata:
   linkType: hard
 
 "babel-plugin-polyfill-regenerator@npm:^0.6.1":
-  version: 0.6.2
-  resolution: "babel-plugin-polyfill-regenerator@npm:0.6.2"
+  version: 0.6.3
+  resolution: "babel-plugin-polyfill-regenerator@npm:0.6.3"
   dependencies:
-    "@babel/helper-define-polyfill-provider": ^0.6.2
+    "@babel/helper-define-polyfill-provider": ^0.6.3
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 150233571072b6b3dfe946242da39cba8587b7f908d1c006f7545fc88b0e3c3018d445739beb61e7a75835f0c2751dbe884a94ff9b245ec42369d9267e0e1b3f
+  checksum: d12696e6b3f280eb78fac551619ca4389262db62c7352cd54bf679d830df8b35596eef2de77cf00db6648eada1c99d49c4f40636dbc9c335a1e5420cfef96750
   languageName: node
   linkType: hard
 
@@ -3494,9 +3494,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001669":
-  version: 1.0.30001677
-  resolution: "caniuse-lite@npm:1.0.30001677"
-  checksum: 34099726620baf4f14fbbe88fec38517208cbe9a47009350b59c7cbbbbd45fcf355afe25d5fa277179660eb0f35f103e68806a07bb33d38bbddb7fde0a4302e4
+  version: 1.0.30001680
+  resolution: "caniuse-lite@npm:1.0.30001680"
+  checksum: 2641d2b18c5ab0a6663cb350c5adc81e5ede1a7677d1c7518a8053ada87bf6f206419e1820a2608f76fa5e4f7bea327cbe47df423783e571569a88c0ea645270
   languageName: node
   linkType: hard
 
@@ -3830,13 +3830,13 @@ __metadata:
   linkType: hard
 
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "cross-spawn@npm:7.0.3"
+  version: 7.0.5
+  resolution: "cross-spawn@npm:7.0.5"
   dependencies:
     path-key: ^3.1.0
     shebang-command: ^2.0.0
     which: ^2.0.1
-  checksum: 671cc7c7288c3a8406f3c69a3ae2fc85555c04169e9d611def9a675635472614f1c0ed0ef80955d5b6d4e724f6ced67f0ad1bb006c2ea643488fcfef994d7f52
+  checksum: 55c50004cb6bbea3649784caac6e7b8ddd03fa8c1e14dbd5a1f15896708378006eb7526a52a0f48770c768c9b8aed48a5888eb8e785ff59ff7749e74f66cd96b
   languageName: node
   linkType: hard
 
@@ -3974,7 +3974,7 @@ __metadata:
 
 "demo-components@file:../demo-components::locator=react_native_multiple_modals_app%40workspace%3A.":
   version: 0.0.1
-  resolution: "demo-components@file:../demo-components#../demo-components::hash=0656a1&locator=react_native_multiple_modals_app%40workspace%3A."
+  resolution: "demo-components@file:../demo-components#../demo-components::hash=5fd515&locator=react_native_multiple_modals_app%40workspace%3A."
   peerDependencies:
     "@react-native-community/blur": ">=4"
     react: ^18
@@ -3983,7 +3983,7 @@ __metadata:
     react-native-multiple-modals: "*"
     react-native-reanimated: ">=3"
     react-native-safe-area-context: ">=4"
-  checksum: 8b54b742ecf8edc0a2851e91dbc7a9d42cfd28569ba573b6ffd33199bdb5c6d044cc7174517922e039922467de0848127cb6192d43fbdee14686969569bb4559
+  checksum: d603368681df9b9c429c4d1b3f12ea8db5498943d16d5110cd5629326d28c44fb8ea67fb34bca9f0fbe1da5fad33e0da336d181e59241eeec6f6cfee514932fb
   languageName: node
   linkType: hard
 
@@ -4064,9 +4064,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.41":
-  version: 1.5.51
-  resolution: "electron-to-chromium@npm:1.5.51"
-  checksum: 51ec624a59f1eda30e2a32c295c8066acdb840c686ed51d3ae0181845fce91b009e2fc3e658578426b65a0eb6a0cd61b071b3c1c974bff684781ae7790b1ed8d
+  version: 1.5.60
+  resolution: "electron-to-chromium@npm:1.5.60"
+  checksum: 049764e0d3a459a312e203c8812e99041be510236467e4bc22d1fec67073e8191e6710b24b4dff980819effe3877b0666f00f5243d411cd1e5419886e7f904f6
   languageName: node
   linkType: hard
 
@@ -4166,8 +4166,8 @@ __metadata:
   linkType: hard
 
 "es-abstract@npm:^1.17.5, es-abstract@npm:^1.22.1, es-abstract@npm:^1.22.3, es-abstract@npm:^1.23.0, es-abstract@npm:^1.23.1, es-abstract@npm:^1.23.2, es-abstract@npm:^1.23.3":
-  version: 1.23.3
-  resolution: "es-abstract@npm:1.23.3"
+  version: 1.23.5
+  resolution: "es-abstract@npm:1.23.5"
   dependencies:
     array-buffer-byte-length: ^1.0.1
     arraybuffer.prototype.slice: ^1.0.3
@@ -4184,7 +4184,7 @@ __metadata:
     function.prototype.name: ^1.1.6
     get-intrinsic: ^1.2.4
     get-symbol-description: ^1.0.2
-    globalthis: ^1.0.3
+    globalthis: ^1.0.4
     gopd: ^1.0.1
     has-property-descriptors: ^1.0.2
     has-proto: ^1.0.3
@@ -4200,10 +4200,10 @@ __metadata:
     is-string: ^1.0.7
     is-typed-array: ^1.1.13
     is-weakref: ^1.0.2
-    object-inspect: ^1.13.1
+    object-inspect: ^1.13.3
     object-keys: ^1.1.1
     object.assign: ^4.1.5
-    regexp.prototype.flags: ^1.5.2
+    regexp.prototype.flags: ^1.5.3
     safe-array-concat: ^1.1.2
     safe-regex-test: ^1.0.3
     string.prototype.trim: ^1.2.9
@@ -4215,7 +4215,7 @@ __metadata:
     typed-array-length: ^1.0.6
     unbox-primitive: ^1.0.2
     which-typed-array: ^1.1.15
-  checksum: f840cf161224252512f9527306b57117192696571e07920f777cb893454e32999206198b4f075516112af6459daca282826d1735c450528470356d09eff3a9ae
+  checksum: 17c81f8a42f0322fd11e0025d3c2229ecfd7923560c710906b8e68660e19c42322750dcedf8ba5cf28bae50d5befd8174d3903ac50dbabb336d3efc3aabed2ee
   languageName: node
   linkType: hard
 
@@ -4804,9 +4804,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.251.1
-  resolution: "flow-parser@npm:0.251.1"
-  checksum: 66ccb941a9b2becdeaad72db08f6494d46e3b3f03ae4f4c2786e54e9b67b2e5e6f2d1166a1b7d81f403ad7ce690242c54204fe70674e4fd5620aa64f0f2530fc
+  version: 0.253.0
+  resolution: "flow-parser@npm:0.253.0"
+  checksum: aec28d36de6847d1f110c6106aab4c18533cec2f9c4f18f93a9f879a61b725c8fb91f2a409b3533690aaa4915d98a6b134311cd83ee9b835b5c9dd4e26b3ac10
   languageName: node
   linkType: hard
 
@@ -7248,10 +7248,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-inspect@npm:^1.13.1":
-  version: 1.13.2
-  resolution: "object-inspect@npm:1.13.2"
-  checksum: 9f850b3c045db60e0e97746e809ee4090d6ce62195af17dd1e9438ac761394a7d8ec4f7906559aea5424eaf61e35d3e53feded2ccd5f62fcc7d9670d3c8eb353
+"object-inspect@npm:^1.13.1, object-inspect@npm:^1.13.3":
+  version: 1.13.3
+  resolution: "object-inspect@npm:1.13.3"
+  checksum: 8c962102117241e18ea403b84d2521f78291b774b03a29ee80a9863621d88265ffd11d0d7e435c4c2cea0dc2a2fbf8bbc92255737a05536590f2df2e8756f297
   languageName: node
   linkType: hard
 
@@ -7774,8 +7774,8 @@ __metadata:
   linkType: hard
 
 "react-native-gesture-handler@npm:^2.20.2":
-  version: 2.20.2
-  resolution: "react-native-gesture-handler@npm:2.20.2"
+  version: 2.21.0
+  resolution: "react-native-gesture-handler@npm:2.21.0"
   dependencies:
     "@egjs/hammerjs": ^2.0.17
     hoist-non-react-statics: ^3.3.0
@@ -7784,26 +7784,26 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 8d9e7496615dad4e6bb6dd1c750c2d3b2e57c6173a1d466b4503b28b159b1dbbb1e7527c3d4bda12324422200c07835f34d81c9bd3cd1b7f594b22949bef274a
+  checksum: c72c90714567f6db388e6fedfaf1b3e118c82669e01524ce390c3ec4e7c42297aad56c3e0952d203ac80062b5d595fd06b9190ec8a9db82084ab148674fd5e34
   languageName: node
   linkType: hard
 
 "react-native-multiple-modals@file:../../react-native-multiple-modals::locator=react_native_multiple_modals_app%40workspace%3A.":
-  version: 1.2.5
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=71316d&locator=react_native_multiple_modals_app%40workspace%3A."
+  version: 2.0.0
+  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=1fa5ad&locator=react_native_multiple_modals_app%40workspace%3A."
   dependencies:
     "@react-native/virtualized-lists": ^0.75.4
   peerDependencies:
     "@types/react": "*"
     "@types/react-native": "*"
     react: ^18
-    react-native: ">=0.70.0"
+    react-native: ">=0.71.0"
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-native":
       optional: true
-  checksum: e2bc89a524077a2fb8be15ef47606a95f86f03493172fe645168c26be35060b3198b871f8e4d67cfdf02cdafc7d91aa601006e0268e4857b031511c01845f239
+  checksum: 23af312ab39c4885f8e798f58e5420489dfe3bb49f872b98c96a18ee6f22ad64d69458e46ad343ab09f79e361159be379b8e1e17d0b882359075ff213f6382cb
   languageName: node
   linkType: hard
 
@@ -8065,7 +8065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexp.prototype.flags@npm:^1.5.2":
+"regexp.prototype.flags@npm:^1.5.2, regexp.prototype.flags@npm:^1.5.3":
   version: 1.5.3
   resolution: "regexp.prototype.flags@npm:1.5.3"
   dependencies:
