@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from './components/button/Button';
@@ -12,6 +12,14 @@ import {RegularModal} from './modals/regular/RegularModal';
 import {COLORS} from './theme/colors';
 
 export const DemoScreen = () => {
+  useEffect(() => {
+    console.info('==========');
+    console.info(
+      'Architecture: ',
+      (global as any)?.nativeFabricUIManager ? 'Fabric' : 'Paper',
+    );
+  }, []);
+
   const [isRegularVisible, setRegularVisibility] = useState(false);
   const [isAnimatedVisible, setAnimatedVisibility] = useState(false);
   const [isBlockingVisible, setBlockingVisibility] = useState(false);
