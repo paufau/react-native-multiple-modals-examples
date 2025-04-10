@@ -69,7 +69,7 @@ yarn-error.log
 .vscode
 .bundle
 
-rn75/bin/
-rn75/cache/
-rn75/extensions/
-rn75/gems/
+rn*/bin/
+rn*/cache/
+rn**/extensions/
+rn**/gems/
