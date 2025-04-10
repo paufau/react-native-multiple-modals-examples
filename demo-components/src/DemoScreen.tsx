@@ -6,6 +6,7 @@ import {AnimatedModal} from './modals/animated/AnimatedModal';
 import {BlockingModal} from './modals/blocking/BlockingModal';
 import {BlurredModal} from './modals/blurred/BlurredModal';
 import {GesturedModal} from './modals/gestured/GesturedModal';
+import {InBottomTabsModal} from './modals/in-bottom-tabs-modal/InBottomTabsModal';
 import {ReanimatedModal} from './modals/reanimated/ReanimatedModal';
 import {RegularModal} from './modals/regular/RegularModal';
 import {COLORS} from './theme/colors';
@@ -17,6 +18,15 @@ export const DemoScreen = () => {
   const [isBlurredVisible, setBlurredVisibility] = useState(false);
   const [isGesturedVisible, setGesturedVisibility] = useState(false);
   const [isReanimatedVisible, setReanimatedVisibility] = useState(false);
+  const [isInBottomTabVisible, setInBottomTabVisible] = useState(false);
+
+  if (isInBottomTabVisible) {
+    return (
+      <InBottomTabsModal
+        onRequestDismiss={() => setInBottomTabVisible(false)}
+      />
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -28,6 +38,9 @@ export const DemoScreen = () => {
         <Button onPress={() => setGesturedVisibility(true)}>Gestured</Button>
         <Button onPress={() => setReanimatedVisibility(true)}>
           Reanimated
+        </Button>
+        <Button onPress={() => setInBottomTabVisible(true)}>
+          In Bottom Tab
         </Button>
       </View>
 
