@@ -4,18 +4,21 @@ import {ModalView} from 'react-native-multiple-modals';
 import {Button} from '../../components/button/Button';
 import {COLORS} from '../../theme/colors';
 
-type RegularModalProps = {
+type FullScreenNoBackgroundModalProps = {
   onRequestDismiss: () => void;
 };
 
-export const RegularModal: FC<RegularModalProps> = ({onRequestDismiss}) => {
+export const FullScreenNoBackgroundModal: FC<
+  FullScreenNoBackgroundModalProps
+> = ({onRequestDismiss}) => {
   return (
     <ModalView
       onRequestDismiss={onRequestDismiss}
-      contentContainerStyle={styles.contentContainer}
+      backdropColor="white"
       statusBar={
         {
-          barStyle: 'light-content',
+          animated: true,
+          barStyle: 'dark-content',
           translucent: true,
         } satisfies StatusBarProps
       }>
@@ -24,7 +27,6 @@ export const RegularModal: FC<RegularModalProps> = ({onRequestDismiss}) => {
         <Text style={styles.description}>
           We will process your request and contact you as soon as possible.
         </Text>
-        {/*  */}
         <Button style={styles.confirmButton} onPress={onRequestDismiss}>
           Confirm
         </Button>
@@ -39,11 +41,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modal: {
-    width: '80%',
-    borderRadius: 26,
+    flex: 1,
     backgroundColor: COLORS.while,
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 20,
   },
   title: {

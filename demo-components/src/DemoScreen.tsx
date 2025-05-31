@@ -10,6 +10,7 @@ import {InBottomTabsModal} from './modals/in-bottom-tabs-modal/InBottomTabsModal
 import {ReanimatedModal} from './modals/reanimated/ReanimatedModal';
 import {RegularModal} from './modals/regular/RegularModal';
 import {COLORS} from './theme/colors';
+import {FullScreenNoBackgroundModal} from './modals/full-screen-no-bg/FullScreenNoBackgroundModal';
 
 export const DemoScreen = () => {
   useEffect(() => {
@@ -27,6 +28,8 @@ export const DemoScreen = () => {
   const [isGesturedVisible, setGesturedVisibility] = useState(false);
   const [isReanimatedVisible, setReanimatedVisibility] = useState(false);
   const [isInBottomTabVisible, setInBottomTabVisible] = useState(false);
+  const [isFullScreenNoBackgroundVisible, setFullScreenNoBackgroundVisible] =
+    useState(false);
 
   if (isInBottomTabVisible) {
     return (
@@ -49,6 +52,9 @@ export const DemoScreen = () => {
         </Button>
         <Button onPress={() => setInBottomTabVisible(true)}>
           In Bottom Tab
+        </Button>
+        <Button onPress={() => setFullScreenNoBackgroundVisible(true)}>
+          Full Screen No Background
         </Button>
       </View>
 
@@ -73,6 +79,11 @@ export const DemoScreen = () => {
       {isReanimatedVisible && (
         <ReanimatedModal
           onRequestDismiss={() => setReanimatedVisibility(false)}
+        />
+      )}
+      {isFullScreenNoBackgroundVisible && (
+        <FullScreenNoBackgroundModal
+          onRequestDismiss={() => setFullScreenNoBackgroundVisible(false)}
         />
       )}
     </SafeAreaView>

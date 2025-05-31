@@ -4077,7 +4077,7 @@ __metadata:
 
 "demo-components@file:../demo-components::locator=react_native_multiple_modals_app%40workspace%3A.":
   version: 0.0.1
-  resolution: "demo-components@file:../demo-components#../demo-components::hash=cb3a66&locator=react_native_multiple_modals_app%40workspace%3A."
+  resolution: "demo-components@file:../demo-components#../demo-components::hash=369ae9&locator=react_native_multiple_modals_app%40workspace%3A."
   peerDependencies:
     "@react-native-community/blur": ">=4"
     "@react-navigation/bottom-tabs": ">=7"
@@ -4089,7 +4089,7 @@ __metadata:
     react-native-reanimated: ">=3"
     react-native-safe-area-context: ">=4"
     react-native-screens: ">=4"
-  checksum: 38a3ad3bf5538617c3acb23b0712b4618f68c6a904dbc47cadc8ff45a094cd4ed6a072471fda64f72716d2687168f7a4046aa26237482aa381f86b0cf7f32d3b
+  checksum: 8b603fc9ce1502eed48f8178fbbd15fa1a8492c5400b0dc00f772383a8252c5a97b4ca69e0663dcd7cec8152f9c33f5d73dda53d49a9b6d5fb5d431fc8501ea0
   languageName: node
   linkType: hard
 
@@ -7939,8 +7939,8 @@ __metadata:
   linkType: hard
 
 "react-native-multiple-modals@file:../../react-native-multiple-modals::locator=react_native_multiple_modals_app%40workspace%3A.":
-  version: 2.0.3
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=05bde7&locator=react_native_multiple_modals_app%40workspace%3A."
+  version: 2.2.0
+  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=90e210&locator=react_native_multiple_modals_app%40workspace%3A."
   dependencies:
     "@react-native/virtualized-lists": ^0.75.4
   peerDependencies:
@@ -7953,7 +7953,7 @@ __metadata:
       optional: true
     "@types/react-native":
       optional: true
-  checksum: 0a1770a9c559265475bbcdc55ea1f340aaef56234c90f2099478fe3557a8e000ac8ceda335ef2733236a376258a58c0daf7cef513de888f0038b0aa8a6db82cd
+  checksum: 0c3a6c203cfa015b6d938d968fad8ff9c6a06db141a0c0898ddcf1dd1e57c9bcd448e6f5393465cf909e8394f80497dadc6e381f983c44e10e551251247475af
   languageName: node
   linkType: hard
 
