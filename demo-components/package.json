@@ -5,14 +5,17 @@
   "engines": {
     "node": ">=18"
   },
-  "main": "src/DemoScreen.tsx",
+  "main": "src/DemoApp.tsx",
+  "scripts": {
+    "lint:fix": "eslint --fix . && prettier --write ."
+  },
   "files": [
     "./*"
   ],
   "peerDependencies": {
     "@react-native-community/blur": ">=4",
-    "@react-navigation/native": ">=7",
     "@react-navigation/bottom-tabs": ">=7",
+    "@react-navigation/native": ">=7",
     "react": "^18",
     "react-native": ">=0.70",
     "react-native-gesture-handler": ">=2",

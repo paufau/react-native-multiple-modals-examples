@@ -11,19 +11,19 @@ import {Button} from '../../components/button/Button';
 import {COLORS} from '../../theme/colors';
 
 type BlockingModalProps = {
-  onSubmit: () => void;
+  onRequestDismiss: () => void;
   onOpenAnother: () => void;
 };
 
 export const BlockingModal: FC<BlockingModalProps> = ({
-  onSubmit,
+  onRequestDismiss,
   onOpenAnother,
 }) => {
   const [isVisible, setVisibility] = useState(true);
 
   const hide = () => {
     setVisibility(false);
-    setTimeout(onSubmit, 500);
+    setTimeout(onRequestDismiss, 500);
   };
 
   return (

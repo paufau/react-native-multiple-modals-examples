@@ -12,17 +12,17 @@ import {Button} from '../../components/button/Button';
 import {COLORS} from '../../theme/colors';
 
 type BlurredModalProps = {
-  onSubmit: () => void;
+  onRequestDismiss: () => void;
 };
 
 const AnimatedBlur = Animated.createAnimatedComponent(BlurView);
 
-export const BlurredModal: FC<BlurredModalProps> = ({onSubmit}) => {
+export const BlurredModal: FC<BlurredModalProps> = ({onRequestDismiss}) => {
   const [isVisible, setVisibility] = useState(true);
 
   const hide = () => {
     setVisibility(false);
-    setTimeout(onSubmit, 500);
+    setTimeout(onRequestDismiss, 500);
   };
 
   return (
