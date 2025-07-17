@@ -21,6 +21,8 @@ export const ScenarioCard: FC<ScenarioCardProps> = ({
   const {colors} = useTheme();
   const isLargeScreen = useWindowDimensions().width > 600;
 
+  console.debug(props.testID);
+
   return (
     <Pressable
       {...props}

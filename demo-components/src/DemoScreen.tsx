@@ -50,20 +50,21 @@ export const DemoScreen = () => {
     () => [
       {
         id: 'regular',
-        title: 'Regular Modal',
-        description: 'A simple modal that can be dismissed.',
+        title: 'Simple',
+        description: 'No animations. Can be dismissed by tapping outside.',
         Component: RegularModal,
       },
       {
         id: 'animated',
-        title: 'Animated Modal',
-        description: 'A modal with custom animations.',
+        title: 'Animated',
+        description: 'Animated appearance and disappearance.',
         Component: AnimatedModal,
       },
       {
         id: 'blocking',
-        title: 'Blocking Modal',
-        description: 'A modal that blocks interaction with the background.',
+        title: 'Blocking',
+        description:
+          'A modal that blocks interaction with the background. Appears from the bottom.',
         Component: BlockingModal,
         additionalProps: {
           onOpenAnother: () => openModal('animated'),
@@ -71,34 +72,33 @@ export const DemoScreen = () => {
       },
       {
         id: 'blurred',
-        title: 'Blurred Modal',
-        description: 'A modal with a blurred background effect.',
+        title: 'Blurred',
+        description: 'A modal with a custom blurred background.',
         Component: BlurredModal,
       },
       {
         id: 'gestured',
-        title: 'Gestured Modal',
+        title: 'Gestured',
         description: 'A modal that supports gestures for dragging.',
         Component: GesturedModal,
       },
       {
         id: 'reanimated',
-        title: 'Reanimated Modal',
+        title: 'Reanimated',
         description: 'A modal using Reanimated for advanced animations.',
         Component: ReanimatedModal,
       },
       {
         id: 'in-bottom-tab',
-        title: 'In Bottom Tab Modal',
+        title: 'Modal Above Bottom Tabs',
         description: 'A modal displayed above a bottom tab navigator.',
         Component: InBottomTabsModal,
         isExclusive: true,
       },
       {
         id: 'full-screen-no-bg',
-        title: 'Full Screen No Background Modal',
-        description:
-          'A full-screen modal without a background, useful for immersive experiences.',
+        title: 'Full Screen',
+        description: 'A full-screen modal.',
         Component: FullScreenNoBackgroundModal,
       },
       {
@@ -144,6 +144,7 @@ export const DemoScreen = () => {
           {demoCases.map(({title, description, id}) => (
             <ScenarioCard
               key={id}
+              testID={id}
               title={title}
               description={description}
               onPress={() => {
