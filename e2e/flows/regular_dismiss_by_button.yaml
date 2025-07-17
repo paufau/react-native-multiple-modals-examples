@@ -1,0 +1,15 @@
+- env:
+  SCREENSHOTS_PATH: "e2e/screenshots/"
+  TEST_NAME: "regular_dismiss_by_button"
+
+---
+- tapOn:
+    id: "regular"
+- assertVisible:
+    id: "regular-modal"
+- takeScreenshot:
+    name: "${SCREENSHOTS_PATH}${TEST_NAME}"
+- tapOn:
+    id: "regular-modal-confirm-button"
+- assertNotVisible:
+    id: "regular-modal"

@@ -64,6 +64,8 @@ yarn-error.log
 
 # testing
 **/coverage
+e2e/results/
+e2e/screenshots/
 
 .yarn
 .vscode
@@ -73,3 +75,4 @@ rn*/bin/
 rn*/cache/
 rn**/extensions/
 rn**/gems/
+
