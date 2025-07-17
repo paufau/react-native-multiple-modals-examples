@@ -119,7 +119,18 @@ const installPods = () => {
   }
 }
 
+const removeGitSubrepo = () => {
+  log('Removing git subrepo...');
+  try {
+    execSync(`cd ${argProjectPath} && rm -rf .git .gitignore`, { stdio: 'inherit' });
+    log('Git subrepo removed successfully.');
+  } catch (error) {
+    console.error('Failed to remove git subrepo:', error.message);
+  }
+}
+
 // Main execution
+removeGitSubrepo();
 removeLocalLibs();
 installExternalLibs();
 installLocalLibs();
