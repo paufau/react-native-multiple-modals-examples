@@ -74,7 +74,7 @@ export const DemoScreen = () => {
           'A modal that blocks interaction with the background. Appears from the bottom.',
         Component: BlockingModal,
         additionalProps: {
-          onOpenAnother: () => openModal('animated'),
+          onOpenAnother: () => openModal('animated-fade'),
         },
       },
       {
