@@ -4,10 +4,10 @@ import {
   PressableProps,
   StyleProp,
   StyleSheet,
-  Text,
   ViewStyle,
 } from 'react-native';
-import {COLORS} from '../../theme/colors';
+import {useTheme} from '../../theme/colors';
+import {Typography} from '../../components/typography/Typography';
 
 type ButtonProps = Omit<PressableProps, 'style'> & {
   style?: StyleProp<ViewStyle>;
@@ -15,6 +15,8 @@ type ButtonProps = Omit<PressableProps, 'style'> & {
 };
 
 export const Button: FC<ButtonProps> = ({children, ...props}) => {
+  const {colors} = useTheme();
+
   return (
     <Pressable
       {...props}
@@ -22,9 +24,14 @@ export const Button: FC<ButtonProps> = ({children, ...props}) => {
         styles.button,
         props.style,
         pressed && styles.buttonPressed,
+        {
+          backgroundColor: colors.textPrimary,
+        },
       ]}>
       {typeof children === 'string' ? (
-        <Text style={styles.title}>{children}</Text>
+        <Typography style={[styles.title, {color: colors.background}]}>
+          {children}
+        </Typography>
       ) : (
         children
       )}
@@ -34,20 +41,18 @@ export const Button: FC<ButtonProps> = ({children, ...props}) => {
 
 const styles = StyleSheet.create({
   button: {
-    borderCurve: 'continuous',
-    borderRadius: 20,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.buttons.primary,
     paddingHorizontal: 20,
     paddingVertical: 16,
   },
   buttonPressed: {
-    opacity: 0.2,
+    opacity: 0.4,
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: COLORS.background,
+    lineHeight: 24,
+    fontWeight: '600',
   },
 });

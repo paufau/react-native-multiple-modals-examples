@@ -32,7 +32,12 @@ export const WithNavigationInsideModal: FC<WithNavigationInsideModalProps> = ({
 };
 
 const MockScreen = () => {
-  return <View style={{flex: 1, backgroundColor: 'magenta'}} />;
+  return (
+    <View
+      testID="modal-navigation-screen"
+      style={{flex: 1, backgroundColor: 'magenta'}}
+    />
+  );
 };
 
 export const BottomTabsNavigator = () => {

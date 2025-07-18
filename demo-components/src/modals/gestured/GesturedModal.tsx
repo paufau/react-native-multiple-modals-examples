@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import {ModalView} from 'react-native-multiple-modals';
 import Animated, {
@@ -7,14 +7,17 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {Button} from '../../components/button/Button';
-import {COLORS} from '../../theme/colors';
+import {AlertContent} from '../../components/alert-content/AlertContent';
 
 type GesturedModalProps = {
   onRequestDismiss: () => void;
+  testID: string;
 };
 
-export const GesturedModal: FC<GesturedModalProps> = ({onRequestDismiss}) => {
+export const GesturedModal: FC<GesturedModalProps> = ({
+  onRequestDismiss,
+  testID,
+}) => {
   const translation = useSharedValue({x: 0, y: 0});
 
   const panGesture = Gesture.Pan()
@@ -45,14 +48,8 @@ export const GesturedModal: FC<GesturedModalProps> = ({onRequestDismiss}) => {
       onRequestDismiss={onRequestDismiss}
       contentContainerStyle={styles.contentContainer}>
       <GestureDetector gesture={panGesture}>
-        <Animated.View style={[styles.modal, animatedModalStyle]}>
-          <Text style={styles.title}>Drag The Modal</Text>
-          <Text style={styles.description}>
-            The modal view should be draggable.
-          </Text>
-          <Button style={styles.closeButton} onPress={onRequestDismiss}>
-            Close
-          </Button>
+        <Animated.View style={animatedModalStyle}>
+          <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
         </Animated.View>
       </GestureDetector>
     </ModalView>
@@ -63,29 +60,5 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  modal: {
-    width: '80%',
-    borderRadius: 26,
-    backgroundColor: COLORS.while,
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
-    padding: 20,
-  },
-  title: {
-    fontSize: 26,
-    lineHeight: 30,
-    fontWeight: '500',
-    color: COLORS.grayDark,
-  },
-  description: {
-    fontSize: 18,
-    lineHeight: 22,
-    fontWeight: '400',
-    color: COLORS.grayDark,
-    marginTop: 8,
-  },
-  closeButton: {
-    marginTop: 16,
   },
 });

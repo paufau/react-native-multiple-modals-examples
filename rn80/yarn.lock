@@ -4026,19 +4026,19 @@ __metadata:
 
 "demo-components@file:../demo-components::locator=rn80%40workspace%3A.":
   version: 0.0.1
-  resolution: "demo-components@file:../demo-components#../demo-components::hash=d24099&locator=rn80%40workspace%3A."
+  resolution: "demo-components@file:../demo-components#../demo-components::hash=944f77&locator=rn80%40workspace%3A."
   peerDependencies:
     "@react-native-community/blur": ">=4"
     "@react-navigation/bottom-tabs": ">=7"
     "@react-navigation/native": ">=7"
-    react: ^18
+    react: ">=18"
     react-native: ">=0.70"
     react-native-gesture-handler: ">=2"
-    react-native-multiple-modals: "*"
+    react-native-multiple-modals: ">=2"
     react-native-reanimated: ">=3"
     react-native-safe-area-context: ">=4"
     react-native-screens: ">=4"
-  checksum: 566f204e17b39d3cff41379310f1207b0e997e848f93d9a181b5e4c2af367d6d487d0620ff5df5d64fae29a4693093c19e9525515f77c29323938a07f26e5676
+  checksum: 1cdf6249958f3d73307d3691e58d2b1517e116b05888ceb2955e0a35c767ae3fddfe0dcb8bafff8fca63986bc1687f2dde62b12f25628a1869c2457bfe25429f
   languageName: node
   linkType: hard
 

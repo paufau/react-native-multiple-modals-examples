@@ -1,27 +1,23 @@
 import {FC} from 'react';
+import {StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {AlertContent} from '../../components/alert-content/AlertContent';
-import {useTheme} from '../../theme/colors';
-import {StyleSheet} from 'react-native';
 
-type FullScreenNoBackgroundModalProps = {
+type SimpleModalProps = {
   onRequestDismiss: () => void;
   testID: string;
 };
 
-export const FullScreenNoBackgroundModal: FC<
-  FullScreenNoBackgroundModalProps
-> = ({onRequestDismiss, testID}) => {
-  const {colors} = useTheme();
-
+export const SimpleModal: FC<SimpleModalProps> = ({
+  onRequestDismiss,
+  testID,
+}) => {
   return (
     <ModalView
       onRequestDismiss={onRequestDismiss}
-      backdropColor={colors.backgroundHighlight}
       contentContainerStyle={styles.contentContainer}
       statusBar={{
-        animated: true,
-        barStyle: 'dark-content',
+        barStyle: 'light-content',
         translucent: true,
       }}>
       <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
@@ -31,7 +27,6 @@ export const FullScreenNoBackgroundModal: FC<
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

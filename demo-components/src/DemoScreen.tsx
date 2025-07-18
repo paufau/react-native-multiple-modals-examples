@@ -1,18 +1,19 @@
 import {ComponentType, useCallback, useMemo, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {AnimatedModal} from './modals/animated/AnimatedModal';
+import {AnimatedFadeModal} from './modals/animated-fade/AnimatedFadeModal';
 import {BlockingModal} from './modals/blocking/BlockingModal';
 import {BlurredModal} from './modals/blurred/BlurredModal';
 import {GesturedModal} from './modals/gestured/GesturedModal';
 import {InBottomTabsModal} from './modals/in-bottom-tabs-modal/InBottomTabsModal';
 import {ReanimatedModal} from './modals/reanimated/ReanimatedModal';
-import {RegularModal} from './modals/regular/RegularModal';
+import {SimpleModal} from './modals/simple/SimpleModal';
 import {useTheme} from './theme/colors';
 import {FullScreenNoBackgroundModal} from './modals/full-screen-no-bg/FullScreenNoBackgroundModal';
 import {WithNavigationInsideModal} from './modals/with-navigation-inside/WithNavigationInsideModal';
 import {ScenarioCard} from './components/scenario-card/ScenarioCard';
 import {Typography} from './components/typography/Typography';
+import {AnimatedSlideModal} from './modals/slide/AnimatedSlideModal';
 
 type DemoCase = {
   id: string;
@@ -49,16 +50,22 @@ export const DemoScreen = () => {
   const demoCases = useMemo<DemoCase[]>(
     () => [
       {
-        id: 'regular',
+        id: 'simple',
         title: 'Simple',
         description: 'No animations. Can be dismissed by tapping outside.',
-        Component: RegularModal,
+        Component: SimpleModal,
       },
       {
-        id: 'animated',
-        title: 'Animated',
-        description: 'Animated appearance and disappearance.',
-        Component: AnimatedModal,
+        id: 'animated-fade',
+        title: 'Animated Fade',
+        description: 'Animated fade appearance and disappearance.',
+        Component: AnimatedFadeModal,
+      },
+      {
+        id: 'animated-slide',
+        title: 'Animated Slide',
+        description: 'Animated slide appearance and disappearance.',
+        Component: AnimatedSlideModal,
       },
       {
         id: 'blocking',
@@ -144,7 +151,7 @@ export const DemoScreen = () => {
           {demoCases.map(({title, description, id}) => (
             <ScenarioCard
               key={id}
-              testID={id}
+              testID={`${id}-open-button`}
               title={title}
               description={description}
               onPress={() => {
@@ -159,6 +166,7 @@ export const DemoScreen = () => {
         <Component
           key={id}
           {...additionalProps}
+          testID={id}
           onRequestDismiss={() => closeModal(id)}
         />
       ))}

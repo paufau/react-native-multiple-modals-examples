@@ -13,11 +13,15 @@ import {COLORS} from '../../theme/colors';
 
 type BlurredModalProps = {
   onRequestDismiss: () => void;
+  testID: string;
 };
 
 const AnimatedBlur = Animated.createAnimatedComponent(BlurView);
 
-export const BlurredModal: FC<BlurredModalProps> = ({onRequestDismiss}) => {
+export const BlurredModal: FC<BlurredModalProps> = ({
+  onRequestDismiss,
+  testID,
+}) => {
   const [isVisible, setVisibility] = useState(true);
 
   const hide = () => {
@@ -28,6 +32,7 @@ export const BlurredModal: FC<BlurredModalProps> = ({onRequestDismiss}) => {
   return (
     <ModalView
       contentContainerStyle={styles.contentContainer}
+      onRequestDismiss={hide}
       renderBackdrop={() =>
         isVisible ? (
           <AnimatedBlur
@@ -39,11 +44,14 @@ export const BlurredModal: FC<BlurredModalProps> = ({onRequestDismiss}) => {
       }>
       {isVisible ? (
         <Animated.View
+          testID={`${testID}-modal`}
           entering={SlideInDown}
           exiting={SlideOutDown}
           style={styles.modal}>
           <Text style={styles.title}>This is the blurred modal</Text>
-          <Button onPress={hide}>Submit</Button>
+          <Button testID={`${testID}-close-button`} onPress={hide}>
+            Close
+          </Button>
         </Animated.View>
       ) : null}
     </ModalView>

@@ -37,7 +37,7 @@ const launchIOSSimulator = ({device, project}) => {
 const installApp = ({project, device}) => {
   logger.log(`Installing app at ${project}...`);
   try {
-    execSync(`cd ${project} && npx react-native run-ios --extra-params="-allowProvisioningUpdates"`, { stdio: 'inherit' });
+    execSync(`cd ${project} && npx react-native run-ios --udid ${device} --extra-params="-allowProvisioningUpdates"`, { stdio: 'inherit' });
     logger.log('App installed successfully.');
   } catch (error) {
     logger.raiseException(`Failed to install app: ${error.message}`);

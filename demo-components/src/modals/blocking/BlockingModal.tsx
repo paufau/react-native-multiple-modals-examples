@@ -13,11 +13,13 @@ import {COLORS} from '../../theme/colors';
 type BlockingModalProps = {
   onRequestDismiss: () => void;
   onOpenAnother: () => void;
+  testID: string;
 };
 
 export const BlockingModal: FC<BlockingModalProps> = ({
   onRequestDismiss,
   onOpenAnother,
+  testID,
 }) => {
   const [isVisible, setVisibility] = useState(true);
 
@@ -40,13 +42,20 @@ export const BlockingModal: FC<BlockingModalProps> = ({
       }>
       {isVisible ? (
         <Animated.View
+          testID={`${testID}-modal`}
           entering={SlideInDown}
           exiting={SlideOutDown}
           style={styles.modal}>
-          <Text style={styles.title}>Some Meaningful Title</Text>
+          <Text style={styles.title}>Title</Text>
           <View style={styles.buttons}>
-            <Button onPress={hide}>Submit</Button>
-            <Button onPress={onOpenAnother}>Open Animated</Button>
+            <Button testID={`${testID}-close-button`} onPress={hide}>
+              Close
+            </Button>
+            <Button
+              testID={`${testID}-open-animated-button`}
+              onPress={onOpenAnother}>
+              Open Animated
+            </Button>
           </View>
         </Animated.View>
       ) : null}
