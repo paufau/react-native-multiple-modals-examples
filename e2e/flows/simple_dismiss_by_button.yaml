@@ -1,16 +1,25 @@
-- env:
-  SCREENSHOTS_PATH: "e2e/screenshots/"
-  TEST_NAME: "simple_dismiss_by_button"
-  MODAL_ID: "simple"
-
+appId: ${APP_ID}
+env:
+  TEST_NAME: simple_dismiss_by_button
 ---
+- runFlow:
+    when:
+      notVisible: ${MODAL_ID}-open-button
+    commands:
+      - scrollUntilVisible:
+          direction: up
+          element:
+            id: simple-open-button
+- scrollUntilVisible:
+    element:
+      id: ${MODAL_ID}-open-button
 - tapOn:
-    id: "${MODAL_ID}-open-button"
+    id: ${MODAL_ID}-open-button
 - assertVisible:
-    id: "${MODAL_ID}-modal"
+    id: ${MODAL_ID}-modal
 - takeScreenshot:
-    name: "${SCREENSHOTS_PATH}${TEST_NAME}"
+    path: ${SCREENSHOTS_PATH}${TEST_NAME}_${MODAL_ID}_${ARCHITECTURE}_${DEVICE}
 - tapOn:
-    id: "${MODAL_ID}-close-button"
+    id: ${MODAL_ID}-close-button
 - assertNotVisible:
-    id: "${MODAL_ID}-modal"
+    id: ${MODAL_ID}-modal

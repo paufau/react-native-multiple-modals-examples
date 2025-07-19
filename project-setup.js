@@ -1,8 +1,9 @@
-const { execSync } = require('child_process');
-const fs = require('fs');
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
-const arguments = process.argv.slice(2);
-const argProjectPath = arguments[0];
+const args = process.argv.slice(2);
+const argProjectPath = args[0];
 
 if (!argProjectPath) {
   console.error('Please provide the project path as an argument.');
@@ -10,6 +11,8 @@ if (!argProjectPath) {
 }
 
 const verbose = true; // Set to true for detailed output
+const projectName = path.basename(argProjectPath);
+const nextBundleId = `com.modals.${projectName}`;
 
 const log = (message) => {
   if (verbose) {
@@ -129,8 +132,30 @@ const removeGitSubrepo = () => {
   }
 }
 
+const setupBundleId = () => {
+  // Set iOS Bundle ID in Info.plist
+  log('Setting up Bundle ID in Info.plist...');
+  const infoPlistPath = `${argProjectPath}/ios/${projectName}/Info.plist`;
+  const infoPlist = fs.readFileSync(infoPlistPath, 'utf8');
+
+  const updatedPlist = infoPlist.replace(/<key>CFBundleIdentifier<\/key>\s*<string>.*?<\/string>/, `<key>CFBundleIdentifier</key>\n\t<string>${nextBundleId}</string>`);
+
+  fs.writeFileSync(infoPlistPath, updatedPlist);
+  log('Bundle ID setup completed.');
+
+  // Set Android application ID
+  log('Setting up application ID in android/app/build.gradle...');
+  const buildGradlePath = `${argProjectPath}/android/app/build.gradle`;
+  const buildGradle = fs.readFileSync(buildGradlePath, 'utf8');
+
+  const updatedGradle = buildGradle.replace(/applicationId ".*?"/, `applicationId "${nextBundleId}"`);
+  fs.writeFileSync(buildGradlePath, updatedGradle);
+  log('Application ID setup completed in android/app/build.gradle.');
+}
+
 // Main execution
 removeGitSubrepo();
+setupBundleId();
 removeLocalLibs();
 installExternalLibs();
 installLocalLibs();

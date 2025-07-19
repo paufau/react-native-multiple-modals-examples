@@ -45,7 +45,7 @@ const launchAndroidEmulator = (device) => {
       return;
     }
 
-    execSync(`emulator -avd ${device}`, { stdio: 'inherit' });
+    execSync(`emulator -avd ${device} > /dev/null 2>&1 &`);
     logger.log(`Emulator ${device} launched successfully.`);
   } catch (error) {
     logger.raiseException(`Failed to launch emulator: ${error.message}`);
@@ -65,7 +65,7 @@ const setupProject = ({project}) => {
 const installApp = ({project}) => {
   logger.log(`Installing app at ${project}...`);
   try {
-    execSync(`cd ${project} && npx react-native run-android --mode=release`, { stdio: 'inherit' });
+    execSync(`cd ${project} && npx react-native run-android`, { stdio: 'inherit' });
     logger.log('App installed successfully.');
   } catch (error) {
     logger.raiseException(`Failed to install app: ${error.message}`);

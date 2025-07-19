@@ -7,9 +7,14 @@
   "type": "module",
   "scripts": {
     "project:setup": "node ./project-setup.js",
-    "project:run": "node ./project-run.js"
+    "project:run": "node ./project-run.js",
+    "e2e:run": "node ./e2e-run.js",
+    "e2e:matrix": "node ./e2e-matrix.js"
   },
   "dependencies": {
+    "jimp": "^1.6.0",
+    "js-yaml": "^4.1.0",
     "yargs": "^18.0.0"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }

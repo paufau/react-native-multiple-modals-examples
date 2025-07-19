@@ -1,7 +1,9 @@
 import {DemoScreen} from './DemoScreen';
-import {StatusBar, useColorScheme} from 'react-native';
+import {LogBox, StatusBar, useColorScheme} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+LogBox.ignoreAllLogs();
 
 export function DemoApp() {
   const isDark = useColorScheme() === 'dark';

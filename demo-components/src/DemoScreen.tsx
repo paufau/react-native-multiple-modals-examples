@@ -103,7 +103,7 @@ export const DemoScreen = () => {
         isExclusive: true,
       },
       {
-        id: 'full-screen-no-bg',
+        id: 'full-screen',
         title: 'Full Screen',
         description: 'A full-screen modal.',
         Component: FullScreenNoBackgroundModal,
@@ -132,6 +132,7 @@ export const DemoScreen = () => {
     return (
       <lastCase.Component
         {...lastCase.additionalProps}
+        testID={lastCase.id}
         onRequestDismiss={() => closeModal(lastCase.id)}
       />
     );

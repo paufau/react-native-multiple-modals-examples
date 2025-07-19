@@ -1,6 +1,5 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { Logger } from './utils.js';
 import { runAndroid } from './project-run-android.js';
 import {runIOS} from './project-run-ios.js'
 
@@ -47,10 +46,7 @@ const argv = yargs(hideBin(process.argv))
   .alias('help', 'h')
   .parse();
 
-const { platform, verbose } = argv;
-
-const logger = new Logger();
-logger.isVerbose = verbose;
+const { platform } = argv;
 
 if (platform === 'android') {
   runAndroid(argv);

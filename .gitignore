@@ -66,6 +66,7 @@ yarn-error.log
 **/coverage
 e2e/results/
 e2e/screenshots/
+e2e/expected-screenshots/
 
 .yarn
 .vscode
