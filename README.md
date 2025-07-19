@@ -2,10 +2,12 @@
 
 ### Look at `demo-components/src/modals` for implementations
 
+---
+
 ## Project Structure
 
-- `demo-components` - Contains all the modal
-- `e2e` - Contains end to end test cases
+- `demo-components` - Demo app and modals
+- `e2e` - E2E test cases
 - `rnXX` - Projects
 
 #### Specific files
