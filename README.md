@@ -1,5 +1,7 @@
 # Example App for React Native Multiple Modals
 
+### Look at `demo-components/src/modals` for implementations
+
 ## Project Structure
 
 - `demo-components` - Contains all the modal
