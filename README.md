@@ -2,9 +2,13 @@
 
 ## Project Structure
 
-- 'demo-components' - Contains all the modals
-- 'e2e' - Contains end to end test cases
-- 'rnXX' - Projects
+- `demo-components` - Contains all the modal
+- `e2e` - Contains end to end test cases
+- `rnXX` - Projects
+
+#### Specific files
+
+- `demo-components/src/modals.config.js` - Crucial for setting up UI & e2e tests
 
 ## Automatic Setup
 
@@ -21,7 +25,7 @@ yarn project:run --platform=android --project=rn80 --arch=new --verbose
 yarn project:run --platform=ios --project=rn80 --arch=new --verbose
 ```
 
-## Manual Setup
+### Manual Setup
 
 1. Clone `react-native-multiple-modals` to the root folder so you have this repo at the same level
 1. `cd` to a preferred project (Eg. `cd rn80`)
@@ -31,13 +35,18 @@ yarn project:run --platform=ios --project=rn80 --arch=new --verbose
    1. Android: `yarn android`
    1. iOS: `yarn ios`
 
-## How to run test
+## How to run Maestro tests
 
 Prefer using `yarn e2e:matrix`. It will run all possible test scenarios for you
 
 #### Updating test snapshots
 
 `yarn e2e:matrix -u`
+
+## Adding more projects & RN version
+
+1. Use `npx @react-native-community/cli init rnXX --version XX`
+2. Run `yarn project:setup rnXX`
 
 ## Examples inside
 
