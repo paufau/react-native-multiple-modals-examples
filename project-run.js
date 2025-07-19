@@ -5,8 +5,10 @@ import {runIOS} from './project-run-ios.js'
 
 // Examples
 
+// Android
 // yarn project:run --platform=android --project=rn80 --device=Pixel_9_Pro --arch=new --verbose --skip-setup
 
+// iOS
 // yarn project:run --platform=ios --project=rn80 --device=313E0F09-0488-40BE-B902-E29B09229A22 --arch=new --verbose --skip-setup
 
 const argv = yargs(hideBin(process.argv))
@@ -27,7 +29,6 @@ const argv = yargs(hideBin(process.argv))
     default: 'new'
   })
   .option('device', {
-    demandOption: true,
     describe: 'Run the project on a specific device',
     type: 'string',
   })

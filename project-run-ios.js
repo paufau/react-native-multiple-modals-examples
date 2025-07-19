@@ -13,7 +13,7 @@ const setupPods = ({ project, architecture }) => {
   }
 }
 
-const setupProject = ({project}) => {
+const setupProject = ({ project }) => {
   logger.log(`Setting up project at ${project}...`);
   try {
     execSync(`cd ${project} && yarn install`, { stdio: 'inherit' });
@@ -23,7 +23,7 @@ const setupProject = ({project}) => {
   }
 }
 
-const launchIOSSimulator = ({device, project}) => {
+const launchIOSSimulator = ({ device, project }) => {
   logger.log(`Launching iOS simulator for device: ${device}`);
   try {
     execSync(`open -a Simulator`)
@@ -34,10 +34,13 @@ const launchIOSSimulator = ({device, project}) => {
   }
 }
 
-const installApp = ({project, device}) => {
+const installApp = ({ project, device }) => {
   logger.log(`Installing app at ${project}...`);
   try {
-    execSync(`cd ${project} && npx react-native run-ios --udid ${device} --extra-params="-allowProvisioningUpdates"`, { stdio: 'inherit' });
+    execSync([
+      `cd ${project} && npx react-native run-ios --extra-params="-allowProvisioningUpdates"`,
+      device ? `--udid ${device}` : ''
+    ].filter(Boolean).join(' '), { stdio: 'inherit' });
     logger.log('App installed successfully.');
   } catch (error) {
     logger.raiseException(`Failed to install app: ${error.message}`);
@@ -53,7 +56,10 @@ export const runIOS = ({ project, device, architecture, verbose, skipSetup }) =>
       setupProject({ project });
     }
     setupPods({ project, architecture });
-    launchIOSSimulator({ project, device });
+
+    if (device) {
+      launchIOSSimulator({ project, device });
+    }
     installApp({ project, device });
   } catch (error) {
     logger.raiseException(`Failed to install iOS app: ${error.message}`);

@@ -74,10 +74,13 @@ const installApp = ({project}) => {
 
 export const runAndroid = ({ project, device, architecture, verbose, skipSetup }) => {
   logger.isVerbose = verbose;
-  logger.log(`Running Android project at ${project} on device ${device} with architecture ${architecture}`);
+  logger.log(`Running Android project at ${project} with architecture ${architecture}`);
   
   setArchitecture({architecture, project});
-  launchAndroidEmulator(device);
+
+  if (device) {
+    launchAndroidEmulator(device);
+  }
   if (!skipSetup) {
     setupProject({project});
   }
