@@ -79,7 +79,7 @@ android {
 
     namespace "com.rn78"
     defaultConfig {
-        applicationId "com.rn78"
+        applicationId "com.modals.rn78"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

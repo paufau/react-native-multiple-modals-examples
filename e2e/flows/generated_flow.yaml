@@ -11,7 +11,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: simple
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -19,7 +19,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: animated-fade
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -27,7 +27,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: animated-slide
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -35,7 +35,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: blocking
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -43,7 +43,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: blurred
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -51,7 +51,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: gestured
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -59,7 +59,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: reanimated
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -67,7 +67,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: in-bottom-tab
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -75,7 +75,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: full-screen
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554
@@ -83,7 +83,7 @@ appId: ${APP_ID}
 - runFlow:
     file: simple_dismiss_by_button.yaml
     env:
-      APP_ID: com.modals.rn80
+      APP_ID: com.modals.rn78
       MODAL_ID: with-navigation-inside
       SCREENSHOTS_PATH: ./e2e/screenshots/
       DEVICE: emulator-5554

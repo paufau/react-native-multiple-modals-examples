@@ -91,7 +91,21 @@ const installLocalLibs = () => {
 const linkReanimatedPlugin = () => {
   log('Linking react-native-reanimated plugin to babel.config.js...');
   const babelConfigPath = `${argProjectPath}/babel.config.js`;
-  const babelConfig = require(babelConfigPath);
+  // Read babel.config.js as a string and parse the exported object
+  const babelConfigContent = fs.readFileSync(babelConfigPath, 'utf8');
+  const babelConfigMatch = babelConfigContent.match(/module\.exports\s*=\s*(\{[\s\S]*\});?/);
+  let babelConfig = {};
+  
+  if (babelConfigMatch) {
+    try {
+      babelConfig = eval('(' + babelConfigMatch[1] + ')');
+    } catch (e) {
+      console.error('Failed to parse babel.config.js:', e.message);
+      return;
+    }
+  } else {
+    console.warn('Could not find module.exports in babel.config.js, using empty config.');
+  }
 
   babelConfig.plugins = [
     ...(babelConfig.plugins, []),
@@ -133,24 +147,68 @@ const removeGitSubrepo = () => {
 }
 
 const setupBundleId = () => {
-  // Set iOS Bundle ID in Info.plist
+  // Set iOS Bundle ID in Info.plist using PlistBuddy
   log('Setting up Bundle ID in Info.plist...');
   const infoPlistPath = `${argProjectPath}/ios/${projectName}/Info.plist`;
-  const infoPlist = fs.readFileSync(infoPlistPath, 'utf8');
+  
+  if (fs.existsSync(infoPlistPath)) {
+    try {
+      execSync(`/usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${nextBundleId}" "${infoPlistPath}"`, { stdio: 'inherit' });
+      log('Bundle ID setup completed in Info.plist using PlistBuddy.');
+    } catch (error) {
+      console.error('Failed to update bundle ID with PlistBuddy, falling back to manual replacement:', error.message);
+      // Fallback to manual replacement
+      const infoPlist = fs.readFileSync(infoPlistPath, 'utf8');
+      const updatedPlist = infoPlist.replace(/<key>CFBundleIdentifier<\/key>\s*<string>.*?<\/string>/, `<key>CFBundleIdentifier</key>\n\t<string>${nextBundleId}</string>`);
+      fs.writeFileSync(infoPlistPath, updatedPlist);
+      log('Bundle ID setup completed using manual replacement.');
+    }
+  } else {
+    console.warn(`Info.plist not found at ${infoPlistPath}`);
+  }
 
-  const updatedPlist = infoPlist.replace(/<key>CFBundleIdentifier<\/key>\s*<string>.*?<\/string>/, `<key>CFBundleIdentifier</key>\n\t<string>${nextBundleId}</string>`);
-
-  fs.writeFileSync(infoPlistPath, updatedPlist);
-  log('Bundle ID setup completed.');
+  // Update PRODUCT_BUNDLE_IDENTIFIER in Xcode project
+  log('Setting up PRODUCT_BUNDLE_IDENTIFIER in Xcode project...');
+  const xcodeprojPath = `${argProjectPath}/ios/${projectName}.xcodeproj`;
+  
+  if (fs.existsSync(xcodeprojPath)) {
+    try {
+      // Update PRODUCT_BUNDLE_IDENTIFIER for all configurations and targets
+      execSync(`cd "${argProjectPath}/ios" && xcodebuild -project ${projectName}.xcodeproj -target ${projectName} PRODUCT_BUNDLE_IDENTIFIER=${nextBundleId} -configuration Debug build`, { stdio: 'pipe' });
+      execSync(`cd "${argProjectPath}/ios" && xcodebuild -project ${projectName}.xcodeproj -target ${projectName} PRODUCT_BUNDLE_IDENTIFIER=${nextBundleId} -configuration Release build`, { stdio: 'pipe' });
+      log('PRODUCT_BUNDLE_IDENTIFIER updated in Xcode project using xcodebuild.');
+    } catch (error) {
+      console.warn('Failed to update PRODUCT_BUNDLE_IDENTIFIER with xcodebuild, trying manual approach:', error.message);
+      
+      // Fallback: manually edit project.pbxproj file
+      const projectPbxprojPath = `${xcodeprojPath}/project.pbxproj`;
+      if (fs.existsSync(projectPbxprojPath)) {
+        try {
+          const projectContent = fs.readFileSync(projectPbxprojPath, 'utf8');
+          const updatedContent = projectContent.replace(/PRODUCT_BUNDLE_IDENTIFIER = ".*?";/g, `PRODUCT_BUNDLE_IDENTIFIER = "${nextBundleId}";`);
+          fs.writeFileSync(projectPbxprojPath, updatedContent);
+          log('PRODUCT_BUNDLE_IDENTIFIER updated in project.pbxproj manually.');
+        } catch (pbxError) {
+          console.error('Failed to update project.pbxproj manually:', pbxError.message);
+        }
+      }
+    }
+  } else {
+    console.warn(`Xcode project not found at ${xcodeprojPath}`);
+  }
 
   // Set Android application ID
   log('Setting up application ID in android/app/build.gradle...');
   const buildGradlePath = `${argProjectPath}/android/app/build.gradle`;
-  const buildGradle = fs.readFileSync(buildGradlePath, 'utf8');
-
-  const updatedGradle = buildGradle.replace(/applicationId ".*?"/, `applicationId "${nextBundleId}"`);
-  fs.writeFileSync(buildGradlePath, updatedGradle);
-  log('Application ID setup completed in android/app/build.gradle.');
+  
+  if (fs.existsSync(buildGradlePath)) {
+    const buildGradle = fs.readFileSync(buildGradlePath, 'utf8');
+    const updatedGradle = buildGradle.replace(/applicationId\s+".*?"/, `applicationId "${nextBundleId}"`);
+    fs.writeFileSync(buildGradlePath, updatedGradle);
+    log('Application ID setup completed in android/app/build.gradle.');
+  } else {
+    console.warn(`build.gradle not found at ${buildGradlePath}`);
+  }
 }
 
 // Main execution

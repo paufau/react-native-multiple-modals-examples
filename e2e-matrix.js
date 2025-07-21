@@ -20,22 +20,37 @@ const { updateScreenshots, steps } = yargs(hideBin(process.argv))
   .alias('help', 'h')
   .parse();
 
+// TODO better device mapping
 const testCases = [
   // New arch
+  // RN 80
   {
     project: 'rn80',
     device: '313E0F09-0488-40BE-B902-E29B09229A22',
     platform: 'ios',
     architecture: 'new'
   },
-  // TODO fix blocking modal appearance
-  // {
-  //   project: 'rn80',
-  //   device: 'Pixel_9_Pro',
-  //   platform: 'android',
-  //   architecture: 'new'
-  // },
+  {
+    project: 'rn80',
+    device: 'Pixel_9_Pro',
+    platform: 'android',
+    architecture: 'new'
+  },
+  // RN 78
+  {
+    project: 'rn78',
+    device: '313E0F09-0488-40BE-B902-E29B09229A22',
+    platform: 'ios',
+    architecture: 'new'
+  },
+  {
+    project: 'rn78',
+    device: 'Pixel_9_Pro',
+    platform: 'android',
+    architecture: 'new'
+  },
   // Old arch
+  // RN 80
   {
     project: 'rn80',
     device: '313E0F09-0488-40BE-B902-E29B09229A22',
@@ -44,6 +59,19 @@ const testCases = [
   },
   {
     project: 'rn80',
+    device: 'Pixel_9_Pro',
+    platform: 'android',
+    architecture: 'old'
+  },
+  // RN 78
+  {
+    project: 'rn78',
+    device: '313E0F09-0488-40BE-B902-E29B09229A22',
+    platform: 'ios',
+    architecture: 'old'
+  },
+  {
+    project: 'rn78',
     device: 'Pixel_9_Pro',
     platform: 'android',
     architecture: 'old'
@@ -84,6 +112,6 @@ testCases.forEach(({ project, device, platform, architecture }) => {
 
   if (steps.includes('tests')) {
     console.log(`Running E2E tests for project: ${project} on device: ${device}`);
-    execSync(`yarn e2e:run --project=${project} --platform=${platform} --update-screenshots=${updateScreenshots}`, { stdio: 'inherit' });
+    execSync(`yarn e2e:run --architecture=${architecture} --device=${device} --project=${project} --platform=${platform} --update-screenshots=${updateScreenshots}`, { stdio: 'inherit' });
   }
 });

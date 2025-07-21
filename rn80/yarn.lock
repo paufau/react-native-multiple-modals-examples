@@ -7766,9 +7766,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:^2.27.1":
-  version: 2.27.1
-  resolution: "react-native-gesture-handler@npm:2.27.1"
+"react-native-gesture-handler@npm:^2.27.2":
+  version: 2.27.2
+  resolution: "react-native-gesture-handler@npm:2.27.2"
   dependencies:
     "@egjs/hammerjs": "npm:^2.0.17"
     hoist-non-react-statics: "npm:^3.3.0"
@@ -7776,7 +7776,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/8b3b38610b14bf7f6276336c10cef518ec2a8bb031fc0caff7c8788fe7f4a129f0c5ada7881848d8b479efec9d260599af9c5e1001a4d498639521a38612c76c
+  checksum: 10/27408b955780f5781ccefb5b2089b8cc5aa885afc85c18ebc80593be9c9e9fe97d06883ca689c78354aaa8e4be4e8a39c92f36cc1655853cafd6f25559e83ada
   languageName: node
   linkType: hard
 
@@ -7790,7 +7790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-is-edge-to-edge@npm:^1.1.7":
+"react-native-is-edge-to-edge@npm:^1.2.1":
   version: 1.2.1
   resolution: "react-native-is-edge-to-edge@npm:1.2.1"
   peerDependencies:
@@ -7802,7 +7802,7 @@ __metadata:
 
 "react-native-multiple-modals@file:../../react-native-multiple-modals::locator=rn80%40workspace%3A.":
   version: 3.0.1
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=2d20cc&locator=rn80%40workspace%3A."
+  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=cdeed7&locator=rn80%40workspace%3A."
   peerDependencies:
     "@react-native/virtualized-lists": ">=0.75.4"
     "@types/react": "*"
@@ -7814,7 +7814,7 @@ __metadata:
       optional: true
     "@types/react-native":
       optional: true
-  checksum: 10/64b96a8be9dfc64ce6e46f9a16595faaf1043fa8ae2e3401b7207abc7815a9b65aa193502cf87c6b473ccd43d7014d411c97432585804a938840959c2f4b694d
+  checksum: 10/76e088c117a39c0dc38916686c8113fdcaf5fdbbff3266e488313ca90cf0dcf53eb5a4b43f7e597180a465ee2225112abb8141ffe79a5eddfc22e140984ba2d4
   languageName: node
   linkType: hard
 
@@ -7842,27 +7842,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^5.5.1":
-  version: 5.5.1
-  resolution: "react-native-safe-area-context@npm:5.5.1"
+"react-native-safe-area-context@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "react-native-safe-area-context@npm:5.5.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/eebb52854549172c1c639908f687ccde0e74261df977eae2b9998643f57eb5c28928934842840c418f628a6d0af783dfb72b4dbce742a2e199ae76a4f7fdc0d4
+  checksum: 10/3f0ba6a09ba7dfeb34147f9625700e5cc05b4590a94cc6bc982ac0e4db337caa461f83f619e925ac52dffe9fc207346036e880d47cbb4a2c9884f2d767e56687
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:^4.11.1":
-  version: 4.11.1
-  resolution: "react-native-screens@npm:4.11.1"
+"react-native-screens@npm:^4.13.1":
+  version: 4.13.1
+  resolution: "react-native-screens@npm:4.13.1"
   dependencies:
     react-freeze: "npm:^1.0.0"
-    react-native-is-edge-to-edge: "npm:^1.1.7"
+    react-native-is-edge-to-edge: "npm:^1.2.1"
     warn-once: "npm:^0.1.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/d17778b386840c0dc1899e197e901e71430c36c9d935e06f9074fe95e03275dd8c077a83e0ef219159dc8ef0eba6589aca5d1a9feb884a971d34881431b4035c
+  checksum: 10/40a9c4ea67c80b4f847ec19e26df4aed9ba470b02a0806c4ef003df9005b2068f7e5002a72f144a6dc38eb2b7c33b6fa87334b9304c1d7111dde02b4a9212d32
   languageName: node
   linkType: hard
 
@@ -8204,11 +8204,11 @@ __metadata:
     prettier: "npm:2.8.8"
     react: "npm:19.1.0"
     react-native: "npm:0.80.1"
-    react-native-gesture-handler: "npm:^2.27.1"
+    react-native-gesture-handler: "npm:^2.27.2"
     react-native-multiple-modals: "file:../../react-native-multiple-modals"
     react-native-reanimated: "npm:^3.18.0"
-    react-native-safe-area-context: "npm:^5.5.1"
-    react-native-screens: "npm:^4.11.1"
+    react-native-safe-area-context: "npm:^5.5.2"
+    react-native-screens: "npm:^4.13.1"
     react-test-renderer: "npm:19.1.0"
     typescript: "npm:5.0.4"
   languageName: unknown

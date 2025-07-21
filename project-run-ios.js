@@ -39,7 +39,7 @@ const installApp = ({ project, device }) => {
   try {
     execSync([
       `cd ${project} && npx react-native run-ios --extra-params="-allowProvisioningUpdates"`,
-      device ? `--udid ${device}` : ''
+      device ? `--udid=${device}` : ''
     ].filter(Boolean).join(' '), { stdio: 'inherit' });
     logger.log('App installed successfully.');
   } catch (error) {

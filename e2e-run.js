@@ -24,6 +24,10 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Path to the React Native project',
     type: 'string',
   })
+  .option('device', {
+    describe: 'Run the project on a specific device',
+    type: 'string',
+  })
   .option('platform', {
     demandOption: true,
     describe: 'Specify the platform for the build',
@@ -62,7 +66,7 @@ const argv = yargs(hideBin(process.argv))
 
   
 // Setup project variables
-const { project, platform, runSteps, architecture, silent, updateScreenshots } = argv;
+const { project, platform, runSteps, architecture, silent, updateScreenshots, device: specificDevice } = argv;
 
 logger.isVerbose = !silent;
 
@@ -73,6 +77,10 @@ const baseFlowPath = path.join(process.cwd(), 'e2e', 'flows', 'base.yaml');
 
 const getBootedDevice = () => {
   if (platform === 'ios') {
+    if (specificDevice) {
+      return specificDevice
+    }
+
     const devices = execSync('xcrun simctl list devices booted', { encoding: 'utf8' });
     const bootedDevice = devices.match(/\(([A-F0-9\-]+)\)\s+\(Booted\)/);
     return bootedDevice ? bootedDevice[1] : null;

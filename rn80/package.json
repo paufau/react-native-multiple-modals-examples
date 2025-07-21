@@ -17,11 +17,11 @@
     "demo-components": "file:../demo-components",
     "react": "19.1.0",
     "react-native": "0.80.1",
-    "react-native-gesture-handler": "^2.27.1",
+    "react-native-gesture-handler": "^2.27.2",
     "react-native-multiple-modals": "file:../../react-native-multiple-modals",
     "react-native-reanimated": "^3.18.0",
-    "react-native-safe-area-context": "^5.5.1",
-    "react-native-screens": "^4.11.1"
+    "react-native-safe-area-context": "^5.5.2",
+    "react-native-screens": "^4.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

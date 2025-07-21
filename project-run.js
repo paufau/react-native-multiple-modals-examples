@@ -43,6 +43,12 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     default: false
   })
+  .option('fast-setup', {
+    alias: 'f',
+    describe: 'Use fast setup for the project',
+    type: 'boolean',
+    default: false
+  })
   .help()
   .alias('help', 'h')
   .parse();

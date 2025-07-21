@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import { Logger } from './utils.js';
 import path from 'path';
+import fs from 'fs';
 
 const logger = new Logger();
 
@@ -62,6 +63,31 @@ const setupProject = ({project}) => {
   }
 }
 
+const doFastSetup = ({project}) => {
+  logger.log('Starting fast setup for the project...');
+  // Check package.json, find file:// dependencies and just copy them to node_modules
+  const packageJsonPath = `${project}/package.json`;
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  const dependencies = Object.keys(packageJson.dependencies || {});
+  const localLibs = dependencies.filter(dep => packageJson.dependencies[dep].startsWith('file:'));
+  if (localLibs.length === 0) {
+    logger.log('No local libraries found in package.json.');
+    return;
+  }
+  logger.log(`Found local libraries: ${localLibs.join(', ')}`);
+  localLibs.forEach(lib => {
+    const libPath = path.resolve(project, 'node_modules', lib);
+    if (fs.existsSync(libPath)) {
+      logger.log(`Removing existing local library: ${lib}`);
+      fs.rmSync(libPath, { recursive: true, force: true });
+    }
+    const sourcePath = path.resolve(project, packageJson.dependencies[lib].replace('file:', ''));
+    logger.log(`Copying local library from ${sourcePath} to ${libPath}`);
+    fs.cpSync(sourcePath, libPath, { recursive: true });
+  });
+  logger.log('Fast setup completed successfully.');
+}
+
 const installApp = ({project}) => {
   logger.log(`Installing app at ${project}...`);
   try {
@@ -72,7 +98,7 @@ const installApp = ({project}) => {
   }
 }
 
-export const runAndroid = ({ project, device, architecture, verbose, skipSetup }) => {
+export const runAndroid = ({ project, device, architecture, verbose, skipSetup, fastSetup }) => {
   logger.isVerbose = verbose;
   logger.log(`Running Android project at ${project} with architecture ${architecture}`);
   
@@ -82,7 +108,11 @@ export const runAndroid = ({ project, device, architecture, verbose, skipSetup }
     launchAndroidEmulator(device);
   }
   if (!skipSetup) {
-    setupProject({project});
+    if (fastSetup) {
+      doFastSetup({project});
+    } else {
+      setupProject({project});
+    }
   }
   installApp({project});
 }
