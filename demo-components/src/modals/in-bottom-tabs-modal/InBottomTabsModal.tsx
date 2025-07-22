@@ -5,25 +5,20 @@ import {StyleSheet, Text, View} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type InBottomTabsModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type InBottomTabsModalProps = BaseModalProps;
 
 const TabNavigator = createBottomTabNavigator();
 
-const ScreenWithModal: FC<InBottomTabsModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+const ScreenWithModal: FC<InBottomTabsModalProps> = props => {
   return (
     <View style={styles.screen}>
       <Text>Some content</Text>
       <ModalView
-        onRequestDismiss={onRequestDismiss}
+        onRequestDismiss={props.onRequestDismiss}
         contentContainerStyle={styles.contentContainer}>
-        <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+        <AlertContent {...props} />
       </ModalView>
     </View>
   );

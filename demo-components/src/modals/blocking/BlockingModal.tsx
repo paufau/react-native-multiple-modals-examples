@@ -8,19 +8,20 @@ import Animated, {
   SlideOutDown,
 } from 'react-native-reanimated';
 import {Button} from '../../components/button/Button';
-import {COLORS} from '../../theme/colors';
+import {useTheme} from '../../theme/colors';
+import {BaseModalProps} from '../BaseModal';
 
 type BlockingModalProps = {
-  onRequestDismiss: () => void;
   onOpenAnother: () => void;
-  testID: string;
-};
+} & BaseModalProps;
 
 export const BlockingModal: FC<BlockingModalProps> = ({
   onRequestDismiss,
   onOpenAnother,
   testID,
+  title,
 }) => {
+  const {colors} = useTheme();
   const [isVisible, setVisibility] = useState(true);
 
   const hide = () => {
@@ -45,8 +46,16 @@ export const BlockingModal: FC<BlockingModalProps> = ({
           testID={`${testID}-modal`}
           entering={SlideInDown}
           exiting={SlideOutDown}
-          style={styles.modal}>
-          <Text style={styles.title}>Title</Text>
+          style={[
+            styles.modal,
+            {
+              backgroundColor: colors.background,
+              borderColor: colors.cardOutline,
+            },
+          ]}>
+          <Text style={[styles.title, {color: colors.textPrimary}]}>
+            {title}
+          </Text>
           <View style={styles.buttons}>
             <Button testID={`${testID}-close-button`} onPress={hide}>
               Close
@@ -54,7 +63,7 @@ export const BlockingModal: FC<BlockingModalProps> = ({
             <Button
               testID={`${testID}-open-animated-button`}
               onPress={onOpenAnother}>
-              Open Animated
+              Open Another
             </Button>
           </View>
         </Animated.View>
@@ -73,7 +82,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 24,
     overflow: 'hidden',
     minHeight: 300,
-    backgroundColor: COLORS.while,
     alignItems: 'stretch',
     paddingHorizontal: 20,
     paddingVertical: 12,
@@ -83,7 +91,6 @@ const styles = StyleSheet.create({
     fontSize: 26,
     lineHeight: 30,
     fontWeight: '500',
-    color: COLORS.grayDark,
   },
   buttons: {
     marginTop: 32,

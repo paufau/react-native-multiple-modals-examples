@@ -2,25 +2,20 @@ import {FC} from 'react';
 import {StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type SimpleModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type SimpleModalProps = BaseModalProps;
 
-export const SimpleModal: FC<SimpleModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const SimpleModal: FC<SimpleModalProps> = props => {
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       contentContainerStyle={styles.contentContainer}
       statusBar={{
         barStyle: 'light-content',
         translucent: true,
       }}>
-      <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+      <AlertContent {...props} />
     </ModalView>
   );
 };

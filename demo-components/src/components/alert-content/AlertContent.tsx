@@ -1,19 +1,19 @@
-import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
-import {Typography} from '../typography/Typography';
-import {DocumentationLinkText} from '../documentation-link-text/DocumentationLinkText';
-import {Button} from '../button/Button';
 import {FC} from 'react';
+import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import {BaseModalProps} from '../../modals/BaseModal';
 import {useTheme} from '../../theme/colors';
+import {Button} from '../button/Button';
+import {DocumentationLinkText} from '../documentation-link-text/DocumentationLinkText';
+import {Typography} from '../typography/Typography';
 
 type AlertContentProps = {
-  onRequestDismiss: () => void;
-  testID: string;
   style?: StyleProp<ViewStyle>;
-};
+} & BaseModalProps;
 
 export const AlertContent: FC<AlertContentProps> = ({
   onRequestDismiss,
   testID,
+  title,
   style,
 }) => {
   const {colors} = useTheme();
@@ -30,7 +30,7 @@ export const AlertContent: FC<AlertContentProps> = ({
       ]}
       testID={`${testID}-modal`}>
       <Typography variant="title" color="primary">
-        Simple Modal
+        {title}
       </Typography>
       <DocumentationLinkText />
       <Button onPress={onRequestDismiss} testID={`${testID}-close-button`}>

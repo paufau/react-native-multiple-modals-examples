@@ -1,22 +1,20 @@
 import {FC} from 'react';
+import {StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {AlertContent} from '../../components/alert-content/AlertContent';
 import {useTheme} from '../../theme/colors';
-import {StyleSheet} from 'react-native';
+import {BaseModalProps} from '../BaseModal';
 
-type FullScreenNoBackgroundModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type FullScreenNoBackgroundModalProps = BaseModalProps;
 
 export const FullScreenNoBackgroundModal: FC<
   FullScreenNoBackgroundModalProps
-> = ({onRequestDismiss, testID}) => {
+> = props => {
   const {colors} = useTheme();
 
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       backdropColor={colors.backgroundHighlight}
       contentContainerStyle={styles.contentContainer}
       statusBar={{
@@ -24,7 +22,7 @@ export const FullScreenNoBackgroundModal: FC<
         barStyle: 'dark-content',
         translucent: true,
       }}>
-      <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+      <AlertContent {...props} />
     </ModalView>
   );
 };

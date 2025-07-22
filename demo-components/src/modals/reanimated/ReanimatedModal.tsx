@@ -3,11 +3,9 @@ import {Pressable, StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import Animated, {FadeIn, FadeOut, withTiming} from 'react-native-reanimated';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type ReanimatedModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type ReanimatedModalProps = BaseModalProps;
 
 const ZoomAndFadeIn = () => {
   'worklet';
@@ -47,24 +45,21 @@ const ZoomAndFadeOut = () => {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export const ReanimatedModal: FC<ReanimatedModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const ReanimatedModal: FC<ReanimatedModalProps> = props => {
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       contentContainerStyle={styles.contentContainer}
       renderBackdrop={() => (
         <AnimatedPressable
           entering={FadeIn}
           exiting={FadeOut}
           style={styles.backdrop}
-          onPress={onRequestDismiss}
+          onPress={props.onRequestDismiss}
         />
       )}>
       <Animated.View entering={ZoomAndFadeIn} exiting={ZoomAndFadeOut}>
-        <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+        <AlertContent {...props} />
       </Animated.View>
     </ModalView>
   );

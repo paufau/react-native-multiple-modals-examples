@@ -2,26 +2,17 @@ import {FC} from 'react';
 import {StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type AnimatedSlideModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type AnimatedSlideModalProps = BaseModalProps;
 
-export const AnimatedSlideModal: FC<AnimatedSlideModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const AnimatedSlideModal: FC<AnimatedSlideModalProps> = props => {
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       contentContainerStyle={styles.contentContainer}
       animationType="slide">
-      <AlertContent
-        onRequestDismiss={onRequestDismiss}
-        testID={testID}
-        style={styles.modal}
-      />
+      <AlertContent {...props} style={styles.modal} />
     </ModalView>
   );
 };

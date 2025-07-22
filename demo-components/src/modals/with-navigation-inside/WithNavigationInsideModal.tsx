@@ -6,30 +6,27 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Button} from '../../components/button/Button';
 import {NavigationContainerCompat} from '../../components/compat/navigation-container/NavigationContainerCompat';
 import {COLORS, useTheme} from '../../theme/colors';
+import {BaseModalProps} from '../BaseModal';
 
-type WithNavigationInsideModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type WithNavigationInsideModalProps = BaseModalProps;
 
 const TabNavigator = createBottomTabNavigator();
 
-export const WithNavigationInsideModal: FC<WithNavigationInsideModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const WithNavigationInsideModal: FC<
+  WithNavigationInsideModalProps
+> = props => {
   return (
     <View style={styles.screen}>
       <Text>Some content</Text>
       <ModalView
-        onRequestDismiss={onRequestDismiss}
+        onRequestDismiss={props.onRequestDismiss}
         contentContainerStyle={styles.contentContainer}>
-        <View testID={`${testID}-modal`} style={styles.wrapper}>
+        <View testID={`${props.testID}-modal`} style={styles.wrapper}>
           <BottomTabsNavigator />
           <Button
-            testID={`${testID}-close-button`}
+            testID={`${props.testID}-close-button`}
             style={styles.confirmButton}
-            onPress={onRequestDismiss}>
+            onPress={props.onRequestDismiss}>
             Close
           </Button>
         </View>

@@ -74,7 +74,7 @@ export const DemoScreen = () => {
           'A modal that blocks interaction with the background. Appears from the bottom.',
         Component: BlockingModal,
         additionalProps: {
-          onOpenAnother: () => openModal('animated-fade'),
+          onOpenAnother: () => openModal('reanimated'),
         },
       },
       {
@@ -126,16 +126,23 @@ export const DemoScreen = () => {
     return lastCase.isExclusive;
   }, [activeCases]);
 
+  const renderModal = useCallback(
+    (item: DemoCase) => (
+      <item.Component
+        key={item.id}
+        title={item.title}
+        testID={item.id}
+        onRequestDismiss={() => closeModal(item.id)}
+        {...item.additionalProps}
+      />
+    ),
+    [closeModal],
+  );
+
   if (isLastCaseExclusive && activeCases.length > 0) {
     const lastCase = activeCases[activeCases.length - 1];
 
-    return (
-      <lastCase.Component
-        {...lastCase.additionalProps}
-        testID={lastCase.id}
-        onRequestDismiss={() => closeModal(lastCase.id)}
-      />
-    );
+    return renderModal(lastCase);
   }
 
   return (
@@ -163,14 +170,7 @@ export const DemoScreen = () => {
         </View>
       </ScrollView>
 
-      {activeCases.map(({Component, id, additionalProps}) => (
-        <Component
-          key={id}
-          {...additionalProps}
-          testID={id}
-          onRequestDismiss={() => closeModal(id)}
-        />
-      ))}
+      {activeCases.map(renderModal)}
     </SafeAreaView>
   );
 };

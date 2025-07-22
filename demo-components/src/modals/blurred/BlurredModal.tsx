@@ -10,17 +10,16 @@ import Animated, {
 } from 'react-native-reanimated';
 import {Button} from '../../components/button/Button';
 import {COLORS} from '../../theme/colors';
+import {BaseModalProps} from '../BaseModal';
 
-type BlurredModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type BlurredModalProps = BaseModalProps;
 
 const AnimatedBlur = Animated.createAnimatedComponent(BlurView);
 
 export const BlurredModal: FC<BlurredModalProps> = ({
   onRequestDismiss,
   testID,
+  title,
 }) => {
   const [isVisible, setVisibility] = useState(true);
 
@@ -48,7 +47,7 @@ export const BlurredModal: FC<BlurredModalProps> = ({
           entering={SlideInDown}
           exiting={SlideOutDown}
           style={styles.modal}>
-          <Text style={styles.title}>This is the blurred modal</Text>
+          <Text style={styles.title}>{title}</Text>
           <Button testID={`${testID}-close-button`} onPress={hide}>
             Close
           </Button>

@@ -8,16 +8,11 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type GesturedModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type GesturedModalProps = BaseModalProps;
 
-export const GesturedModal: FC<GesturedModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const GesturedModal: FC<GesturedModalProps> = props => {
   const translation = useSharedValue({x: 0, y: 0});
 
   const panGesture = Gesture.Pan()
@@ -45,11 +40,11 @@ export const GesturedModal: FC<GesturedModalProps> = ({
 
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       contentContainerStyle={styles.contentContainer}>
       <GestureDetector gesture={panGesture}>
         <Animated.View style={animatedModalStyle}>
-          <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+          <AlertContent {...props} />
         </Animated.View>
       </GestureDetector>
     </ModalView>

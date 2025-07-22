@@ -2,19 +2,14 @@ import {FC} from 'react';
 import {StyleSheet} from 'react-native';
 import {ModalView} from 'react-native-multiple-modals';
 import {AlertContent} from '../../components/alert-content/AlertContent';
+import {BaseModalProps} from '../BaseModal';
 
-type AnimatedFadeModalProps = {
-  onRequestDismiss: () => void;
-  testID: string;
-};
+type AnimatedFadeModalProps = BaseModalProps;
 
-export const AnimatedFadeModal: FC<AnimatedFadeModalProps> = ({
-  onRequestDismiss,
-  testID,
-}) => {
+export const AnimatedFadeModal: FC<AnimatedFadeModalProps> = props => {
   return (
     <ModalView
-      onRequestDismiss={onRequestDismiss}
+      onRequestDismiss={props.onRequestDismiss}
       contentContainerStyle={styles.contentContainer}
       animationType="fade"
       statusBar={{
@@ -22,7 +17,7 @@ export const AnimatedFadeModal: FC<AnimatedFadeModalProps> = ({
         barStyle: 'light-content',
         translucent: true,
       }}>
-      <AlertContent onRequestDismiss={onRequestDismiss} testID={testID} />
+      <AlertContent {...props} />
     </ModalView>
   );
 };
