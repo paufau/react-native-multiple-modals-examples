@@ -49,6 +49,10 @@ export const ReanimatedModal: FC<ReanimatedModalProps> = props => {
   return (
     <ModalView
       onRequestDismiss={props.onRequestDismiss}
+      statusBar={{
+        translucent: true,
+        barStyle: 'dark-content',
+      }}
       contentContainerStyle={styles.contentContainer}
       renderBackdrop={() => (
         <AnimatedPressable

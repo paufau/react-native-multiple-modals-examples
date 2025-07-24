@@ -9,7 +9,7 @@ env:
       - scrollUntilVisible:
           direction: up
           element:
-            id: simple-open-button
+            id: screen-top
 - scrollUntilVisible:
     element:
       id: ${MODAL_ID}-open-button

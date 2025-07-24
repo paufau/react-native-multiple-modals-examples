@@ -1,9 +1,4 @@
 appId: ${APP_ID}
-# env:
-#   SCREENSHOTS_PATH: e2e/screenshots/
-#   MODAL_ID: simple
-#   APP_ID: com.modals.rn80
-#   DEVICE: Pixel_6
 ---
 - launchApp:
     appId: ${APP_ID}

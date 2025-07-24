@@ -31,6 +31,10 @@ export const BlockingModal: FC<BlockingModalProps> = ({
 
   return (
     <ModalView
+      statusBar={{
+        translucent: true,
+        barStyle: 'dark-content',
+      }}
       contentContainerStyle={styles.contentContainer}
       renderBackdrop={() =>
         isVisible ? (

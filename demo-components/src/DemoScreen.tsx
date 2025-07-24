@@ -1,19 +1,21 @@
 import {ComponentType, useCallback, useMemo, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScenarioCard} from './components/scenario-card/ScenarioCard';
+import {Typography} from './components/typography/Typography';
 import {AnimatedFadeModal} from './modals/animated-fade/AnimatedFadeModal';
 import {BlockingModal} from './modals/blocking/BlockingModal';
 import {BlurredModal} from './modals/blurred/BlurredModal';
+import {DefaultModal} from './modals/default/DefaultModal';
+import {FullScreenNoBackgroundModal} from './modals/full-screen-no-bg/FullScreenNoBackgroundModal';
 import {GesturedModal} from './modals/gestured/GesturedModal';
 import {InBottomTabsModal} from './modals/in-bottom-tabs-modal/InBottomTabsModal';
 import {ReanimatedModal} from './modals/reanimated/ReanimatedModal';
 import {SimpleModal} from './modals/simple/SimpleModal';
-import {useTheme} from './theme/colors';
-import {FullScreenNoBackgroundModal} from './modals/full-screen-no-bg/FullScreenNoBackgroundModal';
-import {WithNavigationInsideModal} from './modals/with-navigation-inside/WithNavigationInsideModal';
-import {ScenarioCard} from './components/scenario-card/ScenarioCard';
-import {Typography} from './components/typography/Typography';
 import {AnimatedSlideModal} from './modals/slide/AnimatedSlideModal';
+import {WithNavigationInsideModal} from './modals/with-navigation-inside/WithNavigationInsideModal';
+import {useTheme} from './theme/colors';
+import {IS_FABRIC} from './constants';
 
 type DemoCase = {
   id: string;
@@ -25,9 +27,6 @@ type DemoCase = {
 };
 
 export const DemoScreen = () => {
-  // @ts-ignore
-  const isFabric = (global as any)?.nativeFabricUIManager;
-  const architecture = isFabric ? 'Fabric 🚀' : 'Paper ✈️';
   const {colors} = useTheme();
 
   const [activeCases, setActiveCases] = useState<DemoCase[]>([]);
@@ -49,6 +48,15 @@ export const DemoScreen = () => {
 
   const demoCases = useMemo<DemoCase[]>(
     () => [
+      {
+        id: 'default',
+        title: 'Default',
+        description: 'A default React Native modal',
+        Component: DefaultModal,
+        additionalProps: {
+          onOpenLibraryModal: () => openModal('blocking'),
+        },
+      },
       {
         id: 'simple',
         title: 'Simple',
@@ -151,8 +159,8 @@ export const DemoScreen = () => {
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}>
-        <Typography style={styles.architecture}>
-          Current Architecture: {architecture}
+        <Typography testID="screen-top" style={styles.architecture}>
+          Current Architecture: {IS_FABRIC ? 'Fabric 🚀' : 'Paper ✈️'}
         </Typography>
 
         <View style={styles.casesContainer}>

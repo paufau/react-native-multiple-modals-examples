@@ -20,6 +20,7 @@ export const Button: FC<ButtonProps> = ({children, ...props}) => {
   return (
     <Pressable
       {...props}
+      disabled={!props.onPress}
       style={({pressed}) => [
         styles.button,
         props.style,
