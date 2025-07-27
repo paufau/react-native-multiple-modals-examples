@@ -13,7 +13,7 @@ export const SimpleModal: FC<SimpleModalProps> = props => {
       contentContainerStyle={styles.contentContainer}
       statusBar={{
         barStyle: 'light-content',
-        translucent: true,
+        translucent: false,
       }}>
       <AlertContent {...props} />
     </ModalView>
