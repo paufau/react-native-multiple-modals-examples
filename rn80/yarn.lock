@@ -7801,8 +7801,8 @@ __metadata:
   linkType: hard
 
 "react-native-multiple-modals@file:../../react-native-multiple-modals::locator=rn80%40workspace%3A.":
-  version: 3.0.1
-  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=3a1266&locator=rn80%40workspace%3A."
+  version: 3.0.2
+  resolution: "react-native-multiple-modals@file:../../react-native-multiple-modals#../../react-native-multiple-modals::hash=a68393&locator=rn80%40workspace%3A."
   peerDependencies:
     "@react-native/virtualized-lists": ">=0.75.4"
     "@types/react": "*"
@@ -7814,7 +7814,7 @@ __metadata:
       optional: true
     "@types/react-native":
       optional: true
-  checksum: 10/409ac05576d4bedf99151a5a642817666ace5a9e7ad6e66d930d923cc7fb75ac7fa550ac452813d4d05f3ad94c2a9e2b5e05b1b64963b9a574bc9431a04f59c1
+  checksum: 10/6b36a7829cca2695cea9d65999b9e83d36262a661233f3f7bb6a0ad98d2422ca11bf7b60784f9ef4b7b96fbc94be496ceea9d43c79780f3cd8abb1d77e94562b
   languageName: node
   linkType: hard
 

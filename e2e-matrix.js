@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-const { updateScreenshots, steps } = yargs(hideBin(process.argv))
+const { updateScreenshots, steps, platform } = yargs(hideBin(process.argv))
   .option('update-screenshots', {
     alias: 'u',
     describe: 'Update the expected screenshots with the current ones',
@@ -16,6 +16,12 @@ const { updateScreenshots, steps } = yargs(hideBin(process.argv))
     choices: ['setup', 'tests'],
     default: ['setup', 'tests']
   })
+  .option('platform', {
+    alias: 'p',
+    describe: 'Specify the platform to run tests on',
+    type: 'string',
+    choices: ['android', 'ios'],
+  })
   .help()
   .alias('help', 'h')
   .parse();
@@ -26,27 +32,27 @@ const testCases = [
   // RN 80
   {
     project: 'rn80',
-    device: '313E0F09-0488-40BE-B902-E29B09229A22',
-    platform: 'ios',
+    device: 'Pixel_9_Pro',
+    platform: 'android',
     architecture: 'new'
   },
   {
     project: 'rn80',
-    device: 'Pixel_9_Pro',
-    platform: 'android',
+    device: '313E0F09-0488-40BE-B902-E29B09229A22',
+    platform: 'ios',
     architecture: 'new'
   },
   // RN 78
   {
     project: 'rn78',
-    device: '313E0F09-0488-40BE-B902-E29B09229A22',
-    platform: 'ios',
+    device: 'Pixel_9_Pro',
+    platform: 'android',
     architecture: 'new'
   },
   {
     project: 'rn78',
-    device: 'Pixel_9_Pro',
-    platform: 'android',
+    device: '313E0F09-0488-40BE-B902-E29B09229A22',
+    platform: 'ios',
     architecture: 'new'
   },
   // Old arch
@@ -96,7 +102,14 @@ const stopMetroServer = () => {
   }
 };
 
-testCases.forEach(({ project, device, platform, architecture }) => {
+const cases = testCases.filter(testCase => {
+  if (platform) {
+    return testCase.platform === platform;
+  }
+  return true;
+});
+
+cases.forEach(({ project, device, platform, architecture }) => {
   console.log(`Running tests for project: ${project}, device: ${device}, platform: ${platform}, architecture: ${architecture}`);
 
   stopMetroServer();
