@@ -9,7 +9,8 @@
     "project:setup": "node ./project-setup.js",
     "project:run": "node ./project-run.js",
     "e2e:run": "node ./e2e-run.js",
-    "e2e:matrix": "node ./e2e-matrix.js"
+    "e2e:matrix": "node ./e2e-matrix.js",
+    "prepare": "yarn"
   },
   "dependencies": {
     "jimp": "^1.6.0",
