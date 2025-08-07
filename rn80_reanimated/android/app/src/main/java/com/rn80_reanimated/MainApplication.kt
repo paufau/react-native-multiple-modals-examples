@@ -1,4 +1,4 @@
-package com.rn80
+package com.rn80_reanimated
 
 import android.app.Application
 import com.facebook.react.PackageList

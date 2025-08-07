@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.rn80"
+    namespace "com.rn80_reanimated"
     defaultConfig {
-        applicationId "com.modals.rn80"
+        applicationId "com.modals.rn80_reanimated"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
