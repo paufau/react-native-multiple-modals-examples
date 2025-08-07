@@ -16,6 +16,7 @@ import {AnimatedSlideModal} from './modals/slide/AnimatedSlideModal';
 import {WithNavigationInsideModal} from './modals/with-navigation-inside/WithNavigationInsideModal';
 import {useTheme} from './theme/colors';
 import {IS_FABRIC} from './constants';
+import {EmbeddedModal} from './modals/embedded/EmbeddedModal';
 
 type DemoCase = {
   id: string;
@@ -62,6 +63,13 @@ export const DemoScreen = () => {
         title: 'Simple',
         description: 'No animations. Can be dismissed by tapping outside.',
         Component: SimpleModal,
+      },
+      {
+        id: 'embedded',
+        title: 'Embedded',
+        description:
+          'Has a modal inside it. Opening the inner modal should affect the layout.',
+        Component: EmbeddedModal,
       },
       {
         id: 'animated-fade',

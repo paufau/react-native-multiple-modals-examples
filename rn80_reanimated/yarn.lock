@@ -7847,9 +7847,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-worklets@npm:0.5.0-nightly-20250803-f63fe7062":
-  version: 0.5.0-nightly-20250803-f63fe7062
-  resolution: "react-native-worklets@npm:0.5.0-nightly-20250803-f63fe7062"
+"react-native-worklets@npm:0.4.1":
+  version: 0.4.1
+  resolution: "react-native-worklets@npm:0.4.1"
   dependencies:
     "@babel/plugin-transform-arrow-functions": ^7.0.0-0
     "@babel/plugin-transform-class-properties": ^7.0.0-0
@@ -7865,7 +7865,7 @@ __metadata:
     "@babel/core": ^7.0.0-0
     react: "*"
     react-native: "*"
-  checksum: e2149132acc9da4f06e563d6701580ffaba0fa31d8f59c73846109b4056e5df3f861c6368806c68e0dd8c43a450f2092c5ee081269ec40ff249ba8bf695d9daf
+  checksum: c6b0f0598ddc9eb7a6053b72bb86a374fc4b159fbc9dd740dde900fccdfb87bb7439a354d309618511c20bef4b4ab72ca31507b414fb8bd306b78bd31e1c507b
   languageName: node
   linkType: hard
 
@@ -8212,7 +8212,7 @@ __metadata:
     react-native-reanimated: ^4.0.1
     react-native-safe-area-context: ^5.5.2
     react-native-screens: ^4.13.1
-    react-native-worklets: 0.5.0-nightly-20250803-f63fe7062
+    react-native-worklets: 0.4.1
     react-test-renderer: 19.1.0
     typescript: 5.0.4
   languageName: unknown

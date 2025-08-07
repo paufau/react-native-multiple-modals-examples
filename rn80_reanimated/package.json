@@ -22,7 +22,7 @@
     "react-native-reanimated": "^4.0.1",
     "react-native-safe-area-context": "^5.5.2",
     "react-native-screens": "^4.13.1",
-    "react-native-worklets": "0.5.0-nightly-20250803-f63fe7062"
+    "react-native-worklets": "0.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
