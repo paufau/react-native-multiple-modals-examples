@@ -32,7 +32,9 @@ export const AlertContent: FC<AlertContentProps> = ({
       <Typography variant="title" color="primary">
         {title}
       </Typography>
+
       <DocumentationLinkText />
+
       <Button onPress={onRequestDismiss} testID={`${testID}-close-button`}>
         Close
       </Button>

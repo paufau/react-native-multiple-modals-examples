@@ -1,11 +1,14 @@
+import {Linking} from 'react-native';
 import {LIBRARY_GIT_URL} from '../../constants';
 import {Typography} from '../typography/Typography';
-// @ts-ignore
-import openURLInBrowser from 'react-native/Libraries/Core/Devtools/openURLInBrowser';
 
 export const DocumentationLinkText = () => {
-  const handlePress = () => {
-    openURLInBrowser(LIBRARY_GIT_URL);
+  const handlePress = async () => {
+    const supported = await Linking.canOpenURL(LIBRARY_GIT_URL);
+
+    if (supported) {
+      await Linking.openURL(LIBRARY_GIT_URL);
+    }
   };
 
   return (
