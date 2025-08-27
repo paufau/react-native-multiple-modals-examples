@@ -69,6 +69,7 @@ e2e/screenshots/
 e2e/expected-screenshots/
 
 .yarn/cache
+.yarn/install-state.gz
 .vscode
 .bundle
 
