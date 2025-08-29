@@ -1,11 +1,25 @@
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { getDefaultConfig } = require('@react-native/metro-config');
+const path = require('path');
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('@react-native/metro-config').MetroConfig}
- */
-const config = {};
+const projectRoot = __dirname;
+const monorepoRoot = path.resolve(projectRoot, '../../');
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+module.exports = (() => {
+  const config = getDefaultConfig(projectRoot);
+
+  const monorepoPackages = {
+    'react-native-multiple-modals': path.resolve(monorepoRoot, 'react-native-multiple-modals/src'),
+    'demo-components': path.resolve(projectRoot, '../demo-components'),
+  };
+
+  config.watchFolders = [projectRoot, ...Object.values(monorepoPackages)];
+
+  config.resolver.extraNodeModules = monorepoPackages;
+
+  config.resolver.nodeModulesPaths = [
+    path.resolve(projectRoot, 'node_modules'),
+    path.resolve(monorepoRoot, 'node_modules'),
+  ];
+
+  return config;
+})();

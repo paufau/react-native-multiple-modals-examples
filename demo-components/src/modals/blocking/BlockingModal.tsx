@@ -79,6 +79,7 @@ export const BlockingModal: FC<BlockingModalProps> = ({
 const styles = StyleSheet.create({
   contentContainer: {
     justifyContent: 'flex-end',
+    width: '100%',
   },
   modal: {
     width: '100%',
